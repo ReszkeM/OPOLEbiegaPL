@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnouncementRepository.cs" />
+    <Compile Include="EventRepository.cs" />
+    <Compile Include="FriendRepository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OPOLEbiegaPL.Model\OPOLEbiegaPL.Model.csproj">
+      <Project>{27471C2F-4790-466E-93C6-2005DF63CB5A}</Project>
+      <Name>OPOLEbiegaPL.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
