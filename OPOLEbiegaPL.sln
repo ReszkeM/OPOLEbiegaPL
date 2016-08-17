@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPOLEbiegaPL.API", "OPOLEbiegaPL.API\OPOLEbiegaPL.API.csproj", "{9510534E-8A40-4C0E-9CF5-2EA08927FEA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPOLEbiegaPL.Model", "OPOLEbiegaPL.Model\OPOLEbiegaPL.Model.csproj", "{27471C2F-4790-466E-93C6-2005DF63CB5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPOLEbiegaPL.Data", "OPOLEbiegaPL.Data\OPOLEbiegaPL.Data.csproj", "{5695C991-0C3E-4B4E-8597-904617F6425E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OPOLEbiegaPL.Web", "OPOLEbiegaPL.Web\OPOLEbiegaPL.Web.csproj", "{C2295C25-255A-47EC-9438-AF9E0DC572CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9510534E-8A40-4C0E-9CF5-2EA08927FEA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9510534E-8A40-4C0E-9CF5-2EA08927FEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9510534E-8A40-4C0E-9CF5-2EA08927FEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9510534E-8A40-4C0E-9CF5-2EA08927FEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27471C2F-4790-466E-93C6-2005DF63CB5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27471C2F-4790-466E-93C6-2005DF63CB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27471C2F-4790-466E-93C6-2005DF63CB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27471C2F-4790-466E-93C6-2005DF63CB5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5695C991-0C3E-4B4E-8597-904617F6425E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5695C991-0C3E-4B4E-8597-904617F6425E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5695C991-0C3E-4B4E-8597-904617F6425E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5695C991-0C3E-4B4E-8597-904617F6425E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2295C25-255A-47EC-9438-AF9E0DC572CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2295C25-255A-47EC-9438-AF9E0DC572CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2295C25-255A-47EC-9438-AF9E0DC572CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2295C25-255A-47EC-9438-AF9E0DC572CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
