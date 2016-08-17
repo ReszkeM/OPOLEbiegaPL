@@ -73,3 +73,14 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+
+#ignore node_modules
+/OPOLEbiegaPL.Web/node_modules
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore hot-update files
+*.hot-update.json
+*.hot-update.js
+
