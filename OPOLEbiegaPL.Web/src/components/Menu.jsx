@@ -5,12 +5,19 @@ export default React.createClass({
         return this.props.menuItems || [];
     },
     render: function() {
-        return <div className="menu">
-          {this.getMenuItems().map(entry =>
-              <div key={entry}>
-              <h1>{entry}</h1>
-            </div>
-        )}
-      </div>;
-}
+        return  <nav className="navbar navbar-default">
+                    <div className="container-fluid">
+                        <div className="navbar-header">
+                            <a className="navbar-brand" href="#">Home</a>
+                        </div>
+                        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse">
+                            <ul className="nav navbar-nav">
+                                {this.getMenuItems().map(entry =>
+                                    <li key={entry}><a href={'#/' + entry} onClick={() => this.props.changeCurrentView(entry)}>{entry}</a></li>
+                                )}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            }
 });
