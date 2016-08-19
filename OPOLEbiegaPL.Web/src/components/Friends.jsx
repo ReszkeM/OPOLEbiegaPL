@@ -14,12 +14,12 @@ export default React.createClass({
         };
 
         return  <div className="friends">
-                    {this.getFriends().map(entry =>
-                        <div key={entry.name}>
-                            <h1>{entry.name}</h1>
-                            <img src={entry.imageURL} style={scope.logoStyle} alt="logo" className="img-responsive"/>
+                    {this.getFriends().map( ([key, value]) =>
+                        <div key={key}>
+                            <h1>{key[1]}</h1>
+                            <img src={value[1]} style={scope.logoStyle} alt="logo" className="img-responsive"/>
                         </div>
                     )}
                 </div>;
-}   
+    }   
 });

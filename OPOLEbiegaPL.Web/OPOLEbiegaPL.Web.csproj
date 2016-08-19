@@ -108,6 +108,7 @@
     <Content Include="Scripts\react\react-with-addons.min.js" />
     <Content Include="Scripts\react\react.js" />
     <Content Include="Scripts\react\react.min.js" />
+    <Content Include="src\reducer.js" />
     <Content Include="Webpack.config.js" />
     <Content Include="src\index.jsx" />
     <Content Include="src\components\Menu.jsx" />
