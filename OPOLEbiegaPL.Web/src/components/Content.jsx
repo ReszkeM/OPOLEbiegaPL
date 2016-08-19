@@ -4,11 +4,15 @@ import Persons from './Persons'
 import Events from './Events'
 import Friends from './Friends'
 import Contact from './Contact'
+import Home from './Home'
 import Announcements from './Announcements'
+import * as actionCreators from '../action_creators';
 
-export const Content = React.createClass({
+export default React.createClass({
     section: function(){
         switch(this.props.currentView) {
+            case 'Home':
+                return <Home />
             case 'Persons':
                 return <Persons persons={this.props.persons} />
             case 'Events':
@@ -16,8 +20,8 @@ export const Content = React.createClass({
             case 'Friends':
                 return <Friends friends={this.props.friends} />
             case 'Contact':
-                return <Contact contact={this.props.contact} />
-            case 'Announcements':
+                return <Contact submit = {this.props.submit} />
+            case 'Announcement':
                 return <Announcements announcements={this.props.announcements} />
             default:
                 return <p>DUPA</p>
@@ -30,16 +34,3 @@ export const Content = React.createClass({
                 </div>;
     }   
 });
-
-function mapStateToProps(state, props) {
-    return {
-        currentView: props.currentView,
-        persons: state.get('persons').valueSeq(),
-        events: state.get('events').valueSeq(),
-        friends: state.get('friends').valueSeq(),
-        contact: state.get('contact'),
-        announcements: state.get('announcements').valueSeq()
-    };
-}
-
-export default connect(mapStateToProps)(Content);

@@ -108,6 +108,7 @@
     <Content Include="Scripts\react\react-with-addons.min.js" />
     <Content Include="Scripts\react\react.js" />
     <Content Include="Scripts\react\react.min.js" />
+    <Content Include="src\action_creators.js" />
     <Content Include="src\reducer.js" />
     <Content Include="Webpack.config.js" />
     <Content Include="src\index.jsx" />
@@ -121,6 +122,8 @@
     <Content Include="src\components\Friends.jsx" />
     <Content Include="src\components\Announcements.jsx" />
     <Content Include="src\components\Contact.jsx" />
+    <Content Include="src\components\App.jsx" />
+    <Content Include="src\components\Home.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

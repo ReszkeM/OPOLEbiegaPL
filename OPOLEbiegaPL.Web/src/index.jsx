@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux'
 import {Provider} from 'react-redux';
 import reducer from './reducer';
-import Menu from './components/Menu';
-import Header from './components/Header';
-import Content from './components/Content';
+import App from './components/App';
+import {setState} from './action_creators';
 
 const store = createStore(reducer);
 store.dispatch({ 
@@ -71,26 +70,15 @@ store.dispatch({
             phone: '',
             title: '',
             message: ''
-        }
+        },
+        currentView: "Contact"
     }
 });
 
-// render menu
-ReactDOM.render(
-  <Menu menuItems={['Persons', 'Friends', 'Events', 'Announcement', 'Contact']} />,
-  document.getElementById('menu')
-);
-
-// render menu
-ReactDOM.render(
-  <Header />,
-  document.getElementById('header')
-);
-
-// render site content
+// render View
 ReactDOM.render(
    <Provider store={store}>
-     <Content currentView="Contact" />
+     <App />
    </Provider>,
     document.getElementById('content')
 );
