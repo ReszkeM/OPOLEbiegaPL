@@ -124,6 +124,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AnnouncementApiController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\EmailController.cs" />
     <Compile Include="Controllers\EventApiContriller.cs" />
     <Compile Include="Controllers\FriendApiController.cs" />
     <Compile Include="Controllers\PersonApiController.cs" />

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Achievement.cs" />
     <Compile Include="Announcement.cs" />
+    <Compile Include="EmailModel.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="Friend.cs" />
     <Compile Include="IEntity.cs" />

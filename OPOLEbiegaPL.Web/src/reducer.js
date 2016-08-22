@@ -5,8 +5,8 @@ function setState(state, newState) {
 }
 
 function changeCurrentContent(state, newState) {
-    console.log(newState);
     console.log("change content on page");
+    console.log(newState);
 
     return state.merge({
         currentView: newState
@@ -17,12 +17,9 @@ function sendContactForm(state, newState) {
     console.log("mail send");
     console.log(newState);
 
-    // TODO pomyśleć nad tym jak to powinno wyglądać
-    // Wywalić Contact ze store i wysyłać formularz do e-mail serwisu/wysyłać jakoś prosto z poziomu reacta
-    return state.merge({
-        contact: newState
-    });
+    return state;
 }
+
 
 export default function(state = Map(), action) {
     switch (action.type) {

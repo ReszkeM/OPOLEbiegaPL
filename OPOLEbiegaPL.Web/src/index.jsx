@@ -1,12 +1,16 @@
 ﻿import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import {Provider} from 'react-redux';
 import reducer from './reducer';
 import App from './components/App';
 import {setState} from './action_creators';
+import remoteActionMiddleware from './remote_action_middleware';
 
-const store = createStore(reducer);
+const createStoreWithMiddleware = applyMiddleware(
+  remoteActionMiddleware
+)(createStore);
+const store = createStoreWithMiddleware(reducer);
 store.dispatch({ 
     type: 'SET_STATE',
     state: {
@@ -63,13 +67,6 @@ store.dispatch({
                 name: 'Friend2',
                 imageURL: 'https://d11xdyzr0div58.cloudfront.net/static/logos/apple-touch-icon-144x144.38cf584757c3.png'
             }
-        },
-        contact: {
-            name: '',
-            email: '',
-            phone: '',
-            title: '',
-            message: ''
         },
         currentView: "Contact"
     }
