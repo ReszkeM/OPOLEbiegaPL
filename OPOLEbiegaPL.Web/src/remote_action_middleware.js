@@ -9,6 +9,9 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(action.entry)
+            }).then(result => {
+                //todo informacja o mailu
+                 alert(result.statusText);
             });
         } 
         if (action.meta.mathod === 'GET'){
