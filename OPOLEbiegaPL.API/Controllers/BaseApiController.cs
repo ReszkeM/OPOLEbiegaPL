@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using OPOLEbiegaPL.Data;
 using OPOLEbiegaPL.Model;
 
 namespace OPOLEbiegaPL.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BaseApiController<T1, T2> : ApiController where T1 : RepositoryBase<T2> where T2 : IEntity, new()
     {
         public T1 Repository { get; set; }
@@ -14,7 +16,7 @@ namespace OPOLEbiegaPL.API.Controllers
             return Repository.GetById(id);
         }
 
-        public T2 GetByLast()
+        public T2 GetLast()
         {
             return Repository.GetLast();
         }
@@ -29,7 +31,7 @@ namespace OPOLEbiegaPL.API.Controllers
             Repository.Add(model);
         }
 
-        public void PUpdateut(T2 model)
+        public void Updateut(T2 model)
         {
             Repository.Update(model);
         }
