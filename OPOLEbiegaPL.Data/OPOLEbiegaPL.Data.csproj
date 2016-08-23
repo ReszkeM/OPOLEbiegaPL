@@ -42,11 +42,15 @@
   <ItemGroup>
     <Compile Include="AnnouncementRepository.cs" />
     <Compile Include="EventRepository.cs" />
+    <Compile Include="Stores\AnnouncementStore.cs" />
+    <Compile Include="Stores\EventStore.cs" />
+    <Compile Include="Stores\FriendStore.cs" />
     <Compile Include="FriendRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="PersonRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryBase.cs" />
+    <Compile Include="Stores\PersonStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OPOLEbiegaPL.Model\OPOLEbiegaPL.Model.csproj">

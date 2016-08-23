@@ -6,7 +6,7 @@ namespace OPOLEbiegaPL.Data
 {
     public abstract class RepositoryBase<T> where T : IEntity, new()
     {
-        public List<T> Store { get; set; }
+        public static List<T> Store { get; set; }
 
         public T GetById(int id)
         {
