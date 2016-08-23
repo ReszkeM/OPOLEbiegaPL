@@ -23,7 +23,6 @@ function mapStateToProps(state, props) {
         persons: state.get('persons').valueSeq(),
         events: state.get('events').valueSeq(),
         friends: state.get('friends').valueSeq(),
-        contact: state.get('contact'),
         announcements: state.get('announcements').valueSeq()
     };
 }

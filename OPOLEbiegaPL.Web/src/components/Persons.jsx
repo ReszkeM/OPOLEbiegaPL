@@ -11,9 +11,9 @@ export default React.createClass({
     render: function() {
         return  <div className="persons">
                     {this.getPersons().map(entry =>
-                        <div key={this.getParam(entry, 'lastName')}>
-                            <h1>{this.getParam(entry, 'firstName')} {this.getParam(entry, 'lastName')}</h1>
-                            <p>{this.getParam(entry, 'description')}</p>
+                        <div key={this.getParam(entry, 'LastName')}>
+                            <h1>{this.getParam(entry, 'FirstName')} {this.getParam(entry, 'LastName')}</h1>
+                            <p>{this.getParam(entry, 'Description')}</p>
                         </div>
                     )}
                 </div>;

@@ -1,25 +1,29 @@
 ﻿import {Map} from 'immutable';
+import React from 'react';
 
 function setState(state, newState) {
     return state.merge(newState);
 }
 
 function changeCurrentContent(state, newState) {
-    console.log("change content on page");
-    console.log(newState);
-
     return state.merge({
         currentView: newState
     });
 }
 
 function sendContactForm(state, newState) {
+    // TODO informacja o akcji
     console.log("mail send");
-    console.log(newState);
 
     return state;
 }
 
+function addNewFriend(state) {
+    // TODO informacja o akcji
+    console.log(state);
+
+    return state;
+}
 
 export default function(state = Map(), action) {
     switch (action.type) {
@@ -29,6 +33,8 @@ export default function(state = Map(), action) {
             return changeCurrentContent(state, action.entry);
         case 'SUBMIT_CONTACT_FORM':
             return sendContactForm(state, action.entry);
+        case 'ADD_NEW_FRIEND':
+            return addNewFriend(state);
     }
     return state;
 }

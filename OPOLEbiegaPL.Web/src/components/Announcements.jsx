@@ -11,12 +11,12 @@ export default React.createClass({
     render: function() {
         return  <div className="announcements">
                     {this.getAnnouncements().map(entry =>
-                        <div key={this.getParam(entry, 'name')}>
-                            <h1>{this.getParam(entry, 'name')}</h1>
-                            <p>{this.getParam(entry, 'place')}</p>
-                            <p>{this.getParam(entry, 'date')}</p>
-                            <p>{this.getParam(entry, 'distance')}</p>
-                            <p>{this.getParam(entry, 'description')}</p>
+                        <div key={this.getParam(entry, 'Name')}>
+                            <h1>{this.getParam(entry, 'Name')}</h1>
+                            <p>{this.getParam(entry, 'Place')}</p>
+                            <p>{this.getParam(entry, 'Date')}</p>
+                            <p>{this.getParam(entry, 'Distance')}</p>
+                            <p>{this.getParam(entry, 'Description')}</p>
                         </div>
                     )}
                 </div>;

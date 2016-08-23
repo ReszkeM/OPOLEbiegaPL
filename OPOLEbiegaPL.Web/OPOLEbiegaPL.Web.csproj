@@ -109,6 +109,7 @@
     <Content Include="Scripts\react\react.js" />
     <Content Include="Scripts\react\react.min.js" />
     <Content Include="src\action_creators.js" />
+    <Content Include="src\helpers\fetchHelpers.js" />
     <Content Include="src\reducer.js" />
     <Content Include="src\remote_action_middleware.js" />
     <Content Include="Webpack.config.js" />
@@ -138,7 +139,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\components\popups\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

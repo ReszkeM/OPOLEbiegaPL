@@ -18,7 +18,7 @@ export default React.createClass({
             case 'Events':
                 return <Events events={this.props.events} />
             case 'Friends':
-                return <Friends friends={this.props.friends} />
+                return <Friends addFriend={this.props.addFriend} friends={this.props.friends} />
             case 'Contact':
                 return <Contact submit = {this.props.submit} />
             case 'Announcement':
