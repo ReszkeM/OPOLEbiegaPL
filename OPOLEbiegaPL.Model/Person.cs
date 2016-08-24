@@ -11,5 +11,10 @@ namespace OPOLEbiegaPL.Model
         public string Description { get; set; }
         public string ImageURL { get; set; }
         public List<Achievement> Achievements { get; set; }
+
+        public bool IsPersistent()
+        {
+            return Id > 0;
+        }
     }
 }

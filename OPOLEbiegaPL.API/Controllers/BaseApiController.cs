@@ -26,14 +26,12 @@ namespace OPOLEbiegaPL.API.Controllers
             return Repository.GetAll();
         }
 
-        public void Add(T2 model)
+        public void Update(T2 model)
         {
-            Repository.Add(model);
-        }
-
-        public void Updateut(T2 model)
-        {
-            Repository.Update(model);
+            if (model.IsPersistent())
+                Repository.Update(model);
+            else
+                Repository.Add(model);
         }
 
         public void Delete(int id)

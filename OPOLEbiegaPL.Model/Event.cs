@@ -12,5 +12,10 @@ namespace OPOLEbiegaPL.Model
         public string Distance { get; set; }
         public string Description { get; set; }
         public List<string> ImagesURLs { get; set; }
+
+        public bool IsPersistent()
+        {
+            return Id > 0;
+        }
     }
 }

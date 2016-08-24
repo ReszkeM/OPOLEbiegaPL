@@ -32,7 +32,8 @@ namespace OPOLEbiegaPL.Data
         public virtual void Update(T entity)
         {
             var oldEntity = Store.SingleOrDefault(x => x.Id == entity.Id);
-            oldEntity = entity;
+            Store.Remove(oldEntity);
+            Store.Add(entity);
         }
 
         public virtual void Delete(int id)
