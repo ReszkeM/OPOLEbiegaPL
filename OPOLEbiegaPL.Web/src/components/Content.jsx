@@ -1,12 +1,11 @@
 ﻿import React from 'react';
-import {connect} from 'react-redux';
 import Persons from './Persons'
 import Events from './Events'
 import Friends from './Friends'
 import Contact from './Contact'
 import Home from './Home'
 import Announcements from './Announcements'
-import * as actionCreators from '../action_creators';
+import FriendEdit from './popups/FriendEdit'
 
 export default React.createClass({
     section: function(){
@@ -18,7 +17,7 @@ export default React.createClass({
             case 'Events':
                 return <Events events={this.props.events} />
             case 'Friends':
-                return <Friends addFriend={this.props.addFriend} friends={this.props.friends} />
+                return <Friends title="Dodaj" component={FriendEdit} {...this.props} />
             case 'Contact':
                 return <Contact submit = {this.props.submit} />
             case 'Announcement':
@@ -32,5 +31,5 @@ export default React.createClass({
         return  <div className="content">
                    { this.section() }
                 </div>;
-    }   
+    }
 });

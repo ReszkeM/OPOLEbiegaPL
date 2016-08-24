@@ -9,12 +9,12 @@ export default React.createClass({
         return  <nav className="navbar navbar-default">
                     <div className="container-fluid">
                         <div className="navbar-header">
-                            <a className="navbar-brand" href="#" onClick={() => this.props.changeCurrentContent('Home')}>Home</a>
+                            <a className="navbar-brand" href="#" onClick={() => this.props.changeCurrentContent({currentView: 'Home'})}>Home</a>
                         </div>
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse">
                             <ul className="nav navbar-nav">
                                 {this.getMenuItems().map(entry =>
-                                    <li key={entry}><a href={'#/' + entry} onClick={() => this.props.changeCurrentContent(entry)}>{entry}</a></li>
+                                    <li key={entry}><a href={'#/' + entry} onClick={() => this.props.changeCurrentContent({currentView: entry})}>{entry}</a></li>
                                 )}
                             </ul>
                         </div>
@@ -22,4 +22,3 @@ export default React.createClass({
                 </nav>
             }
 });
-

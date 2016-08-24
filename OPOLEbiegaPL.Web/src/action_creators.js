@@ -10,11 +10,25 @@
     };
 }
 
-export function changeCurrentContent(entry) {
+export function changeCurrentContent(state) {
     return {
-        type: 'CHANGE_CONTENT',
-        entry
+        type: 'SET_STATE',
+        state
     };
+}
+
+export function showWindow(state) {
+    return {
+        type: 'SET_STATE',
+        state
+    }
+}
+
+export function hideWindow(state) {
+    return {
+        type: 'SET_STATE',
+        state
+    }
 }
 
 export function submit(entry) {
@@ -29,21 +43,15 @@ export function submit(entry) {
     };
 }
 
-export function addFriend(entry) {
-    entry = {
-        Id: 9,
-        Name: 'Friend1234',
-        ImageUrl: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ7k3PGbA8U4kPZJKExIk6JwdFKm2cQk8H33hpYwJWCF0qVOgUoegdpxnc'
-    };
-
+export function save(entry) {
     return {
         meta: {
             remote: true,
-            url: 'http://localhost:57174/api/FriendApi/Add',
+            url: 'http://localhost:57174/api/FriendApi/Update',
             method: 'POST',
             propName: 'Friends'
         },
-        type: 'ADD_NEW_FRIEND',
+        type: 'SAVE',
         entry
     }
 }
