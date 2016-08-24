@@ -126,6 +126,8 @@
     <Content Include="src\components\Contact.jsx" />
     <Content Include="src\components\App.jsx" />
     <Content Include="src\components\Home.jsx" />
+    <Content Include="src\components\popups\FriendEdit.jsx" />
+    <Content Include="src\components\popups\Modal.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,9 +141,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\components\popups\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
