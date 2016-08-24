@@ -110,6 +110,7 @@
     <Content Include="Scripts\react\react.min.js" />
     <Content Include="src\action_creators.js" />
     <Content Include="src\helpers\fetchHelpers.js" />
+    <Content Include="src\helpers\styles.js" />
     <Content Include="src\reducer.js" />
     <Content Include="src\remote_action_middleware.js" />
     <Content Include="Webpack.config.js" />

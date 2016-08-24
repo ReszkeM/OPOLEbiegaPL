@@ -4,6 +4,7 @@ export default React.createClass({
     getEvents: function() {
         return this.props.events || [];
     },
+
     getParam: function(entry, paramName) {
         return entry.get(paramName)
     },
@@ -20,5 +21,5 @@ export default React.createClass({
                         </div>
                     )}
                 </div>;
-}   
+}
 });

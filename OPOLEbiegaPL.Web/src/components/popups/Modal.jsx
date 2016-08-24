@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import Styles from '../../helpers/styles'
 
 export default React.createClass({
   getInitialState: function() {
@@ -16,30 +17,16 @@ export default React.createClass({
   },
 
   render: function () {
-      var scope = {
-          modalStyles: {
-              display: 'block'
-          },
-          title: {
-            fontWeight: 'bold'
-          },
-          childStyles: {
-              labelStyle:{
-                  fontSize: '22px'
-              }
-          }
-      };
-
       return <div>
                   <div className="modal-backdrop in"></div>
-                  <div className="modal in"  role='dialog' style={scope.modalStyles}>
+                  <div className="modal in" role='dialog' style={Styles.modalWindow}>
                       <div className="modal-dialog">
                           <div className="modal-content">
                               <div className="modal-header">
-                                  <h2 className="modal-title" style={scope.title}>{this.props.title}</h2>
+                                  <h2 className="modal-title" style={Styles.windowTitle}>{this.props.title}</h2>
                               </div>
                               <div className="modal-body">
-                                  <this.props.component {...this.state} styles={scope.childStyles} handleChange={this.handleChange} />
+                                  <this.props.component {...this.state} handleChange={this.handleChange} />
                               </div>
                               <div className="modal-footer">
                                   <button className="btn btn-default" onClick={() => this.props.hideWindow({isPopupVisible: false})}> Anuluj </button>

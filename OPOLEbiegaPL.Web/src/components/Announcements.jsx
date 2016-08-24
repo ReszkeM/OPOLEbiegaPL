@@ -4,6 +4,7 @@ export default React.createClass({
     getAnnouncements: function() {
         return this.props.announcements || [];
     },
+    
     getParam: function(entry, paramName) {
         return entry.get(paramName)
     },
@@ -20,5 +21,5 @@ export default React.createClass({
                         </div>
                     )}
                 </div>;
-}   
+}
 });

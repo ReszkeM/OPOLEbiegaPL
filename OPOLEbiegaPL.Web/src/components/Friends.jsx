@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import Modal from './popups/Modal';
+import Styles from '../helpers/styles'
 
 export default React.createClass({
     choosenObject: [],
@@ -26,18 +27,11 @@ export default React.createClass({
     },
 
     render: function() {
-        var scope = {
-            logoStyle: {
-                maxHeight: '50px',
-                maxWidth: '50px',
-            },
-        };
-
         return  <div className="friends">
                     {this.getFriends().map( ([id, name, url]) =>
                         <div key={id[1]}>
                             <h1>{name[1]}</h1>
-                            <img src={url[1]} style={scope.logoStyle} alt="logo" className="img-responsive"/>
+                            <img src={url[1]} style={Styles.logo} alt="logo" className="img-responsive"/>
                             { this.editButton('Edytuj', {id: id[1], name: name[1], imageURL: url[1]}) }
                         </div>
                     )}
