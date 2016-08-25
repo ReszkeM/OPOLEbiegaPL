@@ -29,7 +29,8 @@ export default React.createClass({
                                   <this.props.component {...this.state} handleChange={this.handleChange} />
                               </div>
                               <div className="modal-footer">
-                                  <button className="btn btn-default" onClick={() => this.props.hideWindow({isPopupVisible: false})}> Anuluj </button>
+                                  <button className="btn btn-default" onClick={() => this.props.hideWindow()}> Anuluj </button>
+                                  { this.props.isEditMode ? <button className="btn btn-danger" onClick={() => this.props.remove(this.state.id)}> Usuń </button> : null }
                                   <button className="btn btn-primary" onClick={() => this.props.save(this.state)}> Zapisz </button>
                               </div>
                           </div>

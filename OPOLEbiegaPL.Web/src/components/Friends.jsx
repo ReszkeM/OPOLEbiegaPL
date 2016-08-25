@@ -9,11 +9,11 @@ export default React.createClass({
         return this.props.friends || [];
     },
 
-    editButton: function(text, model) {
+    editButton: function(text, model, isEditMode) {
       return <div className="form-group">
                 <button className="btn btn-success btn-lg" type="submit" onClick={() => {
-                  this.props.showWindow({isPopupVisible: true});
-                  this.choosenObject = model}
+                  this.props.showWindow(isEditMode);
+                  this.choosenObject = model;}
                 }>{text}</button>
               </div>
     },
@@ -32,11 +32,11 @@ export default React.createClass({
                         <div key={id[1]}>
                             <h1>{name[1]}</h1>
                             <img src={url[1]} style={Styles.logo} alt="logo" className="img-responsive"/>
-                            { this.editButton('Edytuj', {id: id[1], name: name[1], imageURL: url[1]}) }
+                            { this.editButton('Edytuj', {id: id[1], name: name[1], imageURL: url[1]}, true) }
                         </div>
                     )}
                     <hr />
-                    { this.editButton('Dodaj', {id: -1, name: '', imageURL: ''}) }
+                    { this.editButton('Dodaj', {id: -1, name: '', imageURL: ''}, false) }
                     { this.modalRender() }
                 </div>;
     }

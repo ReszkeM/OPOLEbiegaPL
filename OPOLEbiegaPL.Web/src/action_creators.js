@@ -17,14 +17,20 @@ export function changeCurrentContent(state) {
     };
 }
 
-export function showWindow(state) {
+export function showWindow(isEditMode) {
+    var state = {
+        isPopupVisible: true,
+        isEditMode: isEditMode
+    }
+
     return {
         type: 'SET_STATE',
         state
     }
 }
 
-export function hideWindow(state) {
+export function hideWindow() {
+    var state = { isPopupVisible: false }
     return {
         type: 'SET_STATE',
         state
@@ -52,6 +58,20 @@ export function save(entry) {
             propName: 'Friends'
         },
         type: 'SAVE',
+        entry
+    }
+}
+
+export function remove(entry) {
+    console.log(entry);
+    return {
+        meta: {
+            remote: true,
+            url: 'http://localhost:57174/api/FriendApi/Delete/'+entry,
+            method: 'DELETE',
+            propName: 'Friends'
+        },
+        type: 'DELETE',
         entry
     }
 }

@@ -26,6 +26,11 @@ namespace OPOLEbiegaPL.API.Controllers
             return Repository.GetAll();
         }
 
+        public void Delete(int id)
+        {
+            Repository.Delete(id);
+        }
+
         public void Update(T2 model)
         {
             if (model.IsPersistent())
@@ -34,9 +39,6 @@ namespace OPOLEbiegaPL.API.Controllers
                 Repository.Add(model);
         }
 
-        public void Delete(int id)
-        {
-            Repository.Delete(id);
-        }
+
     }
 }

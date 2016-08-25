@@ -30,6 +30,7 @@ export default function(state = Map(), action) {
         case 'SUBMIT_CONTACT_FORM':
             return sendContactForm(state, action.entry);
         case 'SAVE':
+        case 'DELETE':
             return save(state, action);
     }
     return state;

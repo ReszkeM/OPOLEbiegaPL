@@ -15,7 +15,8 @@ store.dispatch(setState({
     announcements: [],
     friends: [],
     currentView: "Home",
-    isPopupVisible: false
+    isPopupVisible: false,
+    isEditMode: false
 },[
     'Persons',
     'Events',

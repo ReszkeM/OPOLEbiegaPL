@@ -10,19 +10,20 @@ var fetchGET = function (url, callback) {
     }).then(result => callback(result));
 };
 
-var fetchPOST = function(url, data, callback) {
-    fetch(url, {
-        method: 'POST',
+var fetchPOST = function(action, callback) {
+    console.log(action.meta.method);
+    fetch(action.meta.url, {
+        method: action.meta.method,
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(action.meta.data)
     }).then((result) => callback(result));
 };
 
 function handlePOST(action, store) {
-    fetchPOST(action.meta.url, action.entry, function (result) {
+    fetchPOST(action, function (result) {
         console.log(result);
         if (result.ok) {
             switch (action.meta.propName) {
