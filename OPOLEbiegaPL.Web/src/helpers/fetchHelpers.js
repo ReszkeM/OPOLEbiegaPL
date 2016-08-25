@@ -11,14 +11,13 @@ var fetchGET = function (url, callback) {
 };
 
 var fetchPOST = function(action, callback) {
-    console.log(action.meta.method);
     fetch(action.meta.url, {
         method: action.meta.method,
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(action.meta.data)
+        body: JSON.stringify(action.entry)
     }).then((result) => callback(result));
 };
 
@@ -29,12 +28,16 @@ function handlePOST(action, store) {
             switch (action.meta.propName) {
                 case 'Friends':
                     store.dispatch(setState(store, ['Friends']));
+                    break;
                 case 'Events':
                     store.dispatch(setState(store, ['Events']));
+                    break;
                 case 'Persons':
                     store.dispatch(setState(store, ['Persons']));
+                    break;
                 case 'Announcements':
                     store.dispatch(setState(store, ['Announcements']));
+                    break;
             }
         }
     });

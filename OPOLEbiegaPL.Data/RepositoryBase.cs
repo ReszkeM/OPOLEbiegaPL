@@ -25,6 +25,7 @@ namespace OPOLEbiegaPL.Data
 
         public virtual T Add(T entity)
         {
+            entity.Id = Store.Count + 1;
             Store.Add(entity);
             return entity;
         }
