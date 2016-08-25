@@ -1,37 +1,23 @@
 ﻿import {Map} from 'immutable';
 
 function setState(state, newState) {
-    // TODO informacja o akcji
     return state.merge(newState);
 }
 
-function sendContactForm(state, newState) {
-    // TODO informacja o akcji - nie zmieniamy stanu aplikacji
-    console.log("mail send");
-
-    return state;
-}
-
-function save(state, newState) {
-  // TODO informacja o akcji - stan aplikacji aktualizuje się sam
-  // dzięki propercie 'propName' w 'action_creator'
-  // 'fetchHelper' obsługuje aktualizację odpowiedniej property stanu
-    console.log("client-side action");
-
-    return state.merge({
-      isPopupVisible: false
-    });
+function closeWindow(state, newState) {
+    // Aktualizujemy stan aplikacji tylko o zamknięcie okna - reszta aktualizuje się sama
+    // dzięki propercie 'propName' w 'action_creator'
+    // 'fetchHelper' obsługuje aktualizację odpowiedniej property stanu
+    return state.merge(newState);
 }
 
 export default function(state = Map(), action) {
     switch (action.type) {
         case 'SET_STATE':
             return setState(state, action.state);
-        case 'SUBMIT_CONTACT_FORM':
-            return sendContactForm(state, action.entry);
         case 'SAVE':
         case 'DELETE':
-            return save(state, action);
+            return closeWindow(state, { isPopupVisible: false });
     }
     return state;
 }

@@ -23,6 +23,7 @@ var fetchPOST = function(action, callback) {
 
 function handlePOST(action, store) {
     fetchPOST(action, function (result) {
+        // TODO informacja o powodzeniu zapytania
         console.log(result);
         if (result.ok) {
             switch (action.meta.propName) {
