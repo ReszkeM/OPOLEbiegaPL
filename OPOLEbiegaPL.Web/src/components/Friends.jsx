@@ -1,9 +1,11 @@
 ﻿import React from 'react';
 import Modal from './popups/Modal';
 import Styles from '../helpers/styles'
+import FriendEdit from './popups/FriendEdit'
 
 export default React.createClass({
     choosenObject: [],
+    title: '',
 
     getFriends: function() {
         return this.props.friends || [];
@@ -12,8 +14,9 @@ export default React.createClass({
     editButton: function(text, model, isEditMode) {
       return <div className="form-group">
                 <button className="btn btn-success btn-lg" type="submit" onClick={() => {
-                  this.props.showWindow(isEditMode);
-                  this.choosenObject = model;}
+                    this.props.showWindow(isEditMode);
+                    this.choosenObject = model;
+                    this.title = text;}
                 }>{text}</button>
               </div>
     },
@@ -21,7 +24,7 @@ export default React.createClass({
     modalRender: function() {
       return this.props.isPopupVisible ?
               <div id="editWindow">
-                  <Modal {...this.props} object={this.choosenObject} />
+                  <Modal {...this.props} title={this.title} component={FriendEdit} object={this.choosenObject} />
               </div>
               : null
     },

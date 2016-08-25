@@ -5,7 +5,6 @@ import Friends from './Friends'
 import Contact from './Contact'
 import Home from './Home'
 import Announcements from './Announcements'
-import FriendEdit from './popups/FriendEdit'
 
 export default React.createClass({
     section: function(){
@@ -17,7 +16,7 @@ export default React.createClass({
             case 'Events':
                 return <Events events={this.props.events} />
             case 'Friends':
-                return <Friends title="Dodaj" component={FriendEdit} {...this.props} />
+                return <Friends {...this.props} />
             case 'Contact':
                 return <Contact submit = {this.props.submit} />
             case 'Announcement':

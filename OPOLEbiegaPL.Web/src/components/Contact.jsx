@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import Styles from '../helpers/styles'
+import InputHelper from '../helpers/inputHelpers'
 
 export default React.createClass({
     getInitialState: function() {
@@ -12,34 +13,23 @@ export default React.createClass({
         };
     },
 
-    handleChange: function(event) {
-        var returnObj
-        var stateObject = function() {
-            returnObj = {};
-            returnObj[this.target.id] = this.target.value;
-            return returnObj;
-        }.bind(event)();
-
-        this.setState( stateObject );
-    },
-
     render: function() {
         return  <div className="col-md-8 col-md-offset-2">
                     <h1 style={Styles.title}>Skontaktuj się </h1>
                     <div className="form-group">
-                        <input className="form-control" id="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="Name" />
+                        <input className="form-control" id="name" type="text" value={this.state.name} onChange={InputHelper.textInputChange.bind(this)} placeholder="Name" />
                     </div>
                     <div className="form-group">
-                        <input className="form-control" id="email" type="text" value={this.state.email} onChange={this.handleChange} placeholder="Email" />
+                        <input className="form-control" id="email" type="text" value={this.state.email} onChange={InputHelper.textInputChange.bind(this)} placeholder="Email" />
                     </div>
                     <div className="form-group">
-                        <input className="form-control" id="phone" type="text" value={this.state.phone} onChange={this.handleChange} placeholder="Phone" />
+                        <input className="form-control" id="phone" type="text" value={this.state.phone} onChange={InputHelper.textInputChange.bind(this)} placeholder="Phone" />
                     </div>
                     <div className="form-group">
-                        <input className="form-control" id="title" type="text" value={this.state.title} onChange={this.handleChange} placeholder="Title" />
+                        <input className="form-control" id="title" type="text" value={this.state.title} onChange={InputHelper.textInputChange.bind(this)} placeholder="Title" />
                     </div>
                     <div className="form-group">
-                        <textarea className="form-control" id="message" style={Styles.textArea} value={this.state.message} onChange={this.handleChange} placeholder="Message" />
+                        <textarea className="form-control" id="message" style={Styles.textArea} value={this.state.message} onChange={InputHelper.textInputChange.bind(this)} placeholder="Message" />
                     </div>
                     <div className="form-group">
                         <button className="btn btn-success btn-lg" type="submit" onClick={() => this.props.submit(this.state)}>Wyślij</button>

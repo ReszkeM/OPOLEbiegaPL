@@ -1,19 +1,10 @@
 ﻿import React from 'react';
 import Styles from '../../helpers/styles'
+import InputHelper from '../../helpers/inputHelpers'
 
 export default React.createClass({
   getInitialState: function() {
       return this.props.object;
-  },
-
-  handleChange: function(event) {
-      var returnObj;
-      var stateObject = function() {
-          returnObj = {};
-          returnObj[this.target.id] = this.target.value;
-          return returnObj;
-      }.bind(event)();
-      this.setState( stateObject );
   },
 
   render: function () {
@@ -26,7 +17,7 @@ export default React.createClass({
                                   <h2 className="modal-title" style={Styles.windowTitle}>{this.props.title}</h2>
                               </div>
                               <div className="modal-body">
-                                  <this.props.component {...this.state} handleChange={this.handleChange} />
+                                  <this.props.component {...this.state} handleChange={InputHelper.textInputChange.bind(this)} />
                               </div>
                               <div className="modal-footer">
                                   <button className="btn btn-default" onClick={() => this.props.hideWindow()}> Anuluj </button>
