@@ -1,4 +1,5 @@
 ﻿import {setState} from '../action_creators';
+import * as ToastrHelper from './toastrHelper';
 
 var fetchGET = function (url, callback) {
     fetch(url, {
@@ -10,7 +11,7 @@ var fetchGET = function (url, callback) {
     }).then(result => callback(result));
 };
 
-var fetchPOST = function(action, callback) {
+var fetchPOST = function(action, success, error) {
     fetch(action.meta.url, {
         method: action.meta.method,
         headers: {
@@ -18,30 +19,19 @@ var fetchPOST = function(action, callback) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(action.entry)
-    }).then((result) => callback(result));
+    }).then(success, error);
 };
 
 function handlePOST(action, store) {
-    fetchPOST(action, function (result) {
-        // TODO informacja o powodzeniu zapytania
-        console.log(result);
-        if (result.ok) {
-            switch (action.meta.propName) {
-                case 'Friends':
-                    store.dispatch(setState(store, ['Friends']));
-                    break;
-                case 'Events':
-                    store.dispatch(setState(store, ['Events']));
-                    break;
-                case 'Persons':
-                    store.dispatch(setState(store, ['Persons']));
-                    break;
-                case 'Announcements':
-                    store.dispatch(setState(store, ['Announcements']));
-                    break;
-            }
+    fetchPOST(action, 
+        (success) => {
+            store.dispatch(setState(store, [action.meta.propName]));
+            ToastrHelper.requestResult(success);
+        },
+        (error) => {
+            ToastrHelper.requestResult(error);
         }
-    });
+    );
 };
 
 function handleGET(url, store, propName) {

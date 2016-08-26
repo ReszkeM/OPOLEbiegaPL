@@ -63,7 +63,6 @@ export function save(entry) {
 }
 
 export function remove(entry) {
-    console.log(entry);
     return {
         meta: {
             remote: true,

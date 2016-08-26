@@ -1,10 +1,12 @@
 ﻿import {Map} from 'immutable';
+import * as ToastrHelper from './helpers/toastrHelper';
 
 function setState(state, newState) {
     return state.merge(newState);
 }
 
 export default function(state = Map(), action) {
+    console.log("client-side action");
     switch (action.type) {
         case 'SET_STATE':
             return setState(state, action.state);

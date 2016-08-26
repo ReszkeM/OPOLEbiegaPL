@@ -38,7 +38,5 @@ namespace OPOLEbiegaPL.API.Controllers
             else
                 Repository.Add(model);
         }
-
-
     }
 }

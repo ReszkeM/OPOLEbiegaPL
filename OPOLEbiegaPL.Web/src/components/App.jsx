@@ -19,13 +19,13 @@ export const App = React.createClass({
 
 function mapStateToProps(state, props) {
     return {
-        isPopupVisible: state.get('isPopupVisible'),
-        isEditMode: state.get('isEditMode'),
-        currentView: state.get('currentView'),
-        persons: state.get('persons').valueSeq(),
-        events: state.get('events').valueSeq(),
-        friends: state.get('friends').valueSeq(),
-        announcements: state.get('announcements').valueSeq()
+        isPopupVisible: state.app.get('isPopupVisible'),
+        isEditMode: state.app.get('isEditMode'),
+        currentView: state.app.get('currentView'),
+        persons: state.app.get('persons').valueSeq(),
+        events: state.app.get('events').valueSeq(),
+        friends: state.app.get('friends').valueSeq(),
+        announcements: state.app.get('announcements').valueSeq()
     };
 }
 
