@@ -1,9 +1,16 @@
-﻿export function setState(state, propsToUpdate) {
+﻿export function setInitialState(state) {
+    return {
+        type: 'SET_INITIAL_STATE',
+        state
+    };
+}
+
+export function setState(state, url) {
     return {
         meta: {
             remote: true,
             method: 'GET',
-            propsToUpdate: propsToUpdate
+            url: url
         },
         type: 'SET_STATE',
         state

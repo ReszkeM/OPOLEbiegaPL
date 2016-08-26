@@ -26,17 +26,20 @@ namespace OPOLEbiegaPL.API.Controllers
             return Repository.GetAll();
         }
 
-        public void Delete(int id)
+        public IEnumerable<T2> Delete(int id)
         {
             Repository.Delete(id);
+            return Repository.GetAll();
         }
 
-        public void Update(T2 model)
+        public IEnumerable<T2> Update(T2 model)
         {
             if (model.IsPersistent())
                 Repository.Update(model);
             else
                 Repository.Add(model);
+
+            return Repository.GetAll();
         }
     }
 }

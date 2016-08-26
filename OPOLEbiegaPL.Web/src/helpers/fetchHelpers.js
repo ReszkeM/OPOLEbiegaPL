@@ -1,67 +1,72 @@
 ﻿import {setState} from '../action_creators';
 import * as ToastrHelper from './toastrHelper';
 
-var fetchGET = function (url, callback) {
+function fetchGET (url, callback, jsonCallback) {
     fetch(url, {
         method: 'GET',
         dataType: "json",
         contentType: "application/json; charset=utf-8"
-    }).then((response) => {
-        return response.json();
-    }).then(result => callback(result));
+    }).then(callback).then(jsonCallback);
 };
 
-var fetchPOST = function(action, success, error) {
+function fetchPOST (action, succes, error, successCallback) {
     fetch(action.meta.url, {
         method: action.meta.method,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(action.entry)
-    }).then(success, error);
+    }).then(succes, error).then(successCallback);
 };
 
 function handlePOST(action, store) {
     fetchPOST(action, 
-        (success) => {
-            store.dispatch(setState(store, [action.meta.propName]));
-            ToastrHelper.requestResult(success);
+        (result) => {
+            ToastrHelper.requestResult(result);
+            return result.json();
         },
-        (error) => {
-            ToastrHelper.requestResult(error);
+        (result) => {
+            ToastrHelper.requestResult(result);
+        },
+        (result) => {
+            if (action && action.meta && action.meta.propName) {
+                store.dispatch({
+                    type: "SET_STATE",
+                    state: { [action.meta.propName.toLowerCase()]: result }
+                });
+            }
         }
     );
 };
 
-function handleGET(url, store, propName) {
-    fetchGET(url, function (result) {
-        store.dispatch({
-            type: 'SET_STATE',
-            state: { [propName]: result }
-        });
-
-        return result;
-    });
+function handleGET(store, url, propName) {
+    fetchGET(url, 
+        (result) => {
+            return result.json();
+        },
+        (result) => {
+            store.dispatch({
+                type: 'SET_STATE',
+                state: { [propName]: result }
+            });
+            return result;
+        }
+    );
 };
 
-function getData(action, store) {
-    if (action.meta.propsToUpdate.indexOf('Friends') !== -1) {
-        handleGET('http://localhost:57174/api/FriendApi/GetAll', store, 'friends');
-    }
-    if (action.meta.propsToUpdate.indexOf('Events') !== -1) {
-        handleGET('http://localhost:57174/api/EventApi/GetAll', store, 'events');
-    }
-    if (action.meta.propsToUpdate.indexOf('Persons') !== -1) {
-        handleGET('http://localhost:57174/api/PersonApi/GetAll', store, 'persons');
-    }
-    if (action.meta.propsToUpdate.indexOf('Announcements') !== -1) {
-        handleGET('http://localhost:57174/api/AnnouncementApi/GetAll', store, 'announcements');
-    }
+function getInitialData(action, store) {
+    handleGET(store, 'http://localhost:57174/api/FriendApi/GetAll', 'friends');
+    handleGET(store, 'http://localhost:57174/api/EventApi/GetAll', 'events');
+    handleGET(store, 'http://localhost:57174/api/PersonApi/GetAll', 'persons');
+    handleGET(store, 'http://localhost:57174/api/AnnouncementApi/GetAll', 'announcements');
 }
 
 var fetchHelper = {
-    getData: getData,
+    getInitialData: getInitialData,
+    getData: handleGET,
     sendData: handlePOST
 };
 

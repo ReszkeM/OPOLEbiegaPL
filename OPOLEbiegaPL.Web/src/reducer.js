@@ -6,9 +6,9 @@ function setState(state, newState) {
 }
 
 export default function(state = Map(), action) {
-    console.log("client-side action");
     switch (action.type) {
         case 'SET_STATE':
+        case 'SET_INITIAL_STATE':
             return setState(state, action.state);
         case 'SAVE':
         case 'DELETE':

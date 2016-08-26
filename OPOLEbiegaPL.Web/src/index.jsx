@@ -6,7 +6,7 @@ import {reducer as toastr} from 'react-redux-toastr'
 import ReduxToastr from 'react-redux-toastr'
 import app from './reducer';
 import App from './components/App';
-import {setState} from './action_creators';
+import {setInitialState} from './action_creators';
 import remoteActionMiddleware from './remote_action_middleware';
 
 const reducer = combineReducers({
@@ -16,7 +16,7 @@ const reducer = combineReducers({
 
 const createStoreWithMiddleware = applyMiddleware(remoteActionMiddleware)(createStore);
 const store = createStoreWithMiddleware(reducer);
-store.dispatch(setState({
+store.dispatch(setInitialState({
     persons: [],
     events: [],
     announcements: [],
@@ -24,12 +24,7 @@ store.dispatch(setState({
     currentView: "Home",
     isPopupVisible: false,
     isEditMode: false
-},[
-    'Persons',
-    'Events',
-    'Announcements',
-    'Friends'
-]));
+}));
 
 // render View
 ReactDOM.render(
