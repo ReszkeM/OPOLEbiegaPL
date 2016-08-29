@@ -1,12 +1,14 @@
 ﻿import React from 'react';
-import Modal from './popups/Modal';
+import {connect} from 'react-redux';
+import * as actionCreators from '../action_creators';
 import Styles from '../helpers/styles'
+import Modal from './popups/Modal';
 import FriendEdit from './popups/FriendEdit'
 
-export default React.createClass({
+export const Friends = React.createClass({
     choosenObject: [],
     title: '',
-        
+
     getInitialState: function() {
         if (this.props.friends.size === 0){
             this.props.setState({}, 'http://localhost:57174/api/FriendApi/GetAll', 'friends');
@@ -51,3 +53,13 @@ render: function() {
                 </div>;
     }
 });
+
+function mapStateToProps(state, props) {
+    return {
+        isPopupVisible: state.app.get('isPopupVisible'),
+        isEditMode: state.app.get('isEditMode'),
+        friends: state.app.get('friends').valueSeq()
+    };
+}
+
+export default connect(mapStateToProps, actionCreators)(Friends);

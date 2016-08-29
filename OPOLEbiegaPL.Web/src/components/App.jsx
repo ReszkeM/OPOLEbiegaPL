@@ -3,30 +3,15 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
 import Menu from './Menu';
 import Header from './Header';
-import Content from './Content';
 
-export const App = React.createClass({
+export default React.createClass({
     render: function() {
         return  <div>
                     <Menu
                         changeCurrentContent = {this.props.changeCurrentContent}
                         menuItems = {['Persons', 'Friends', 'Events', 'Announcement', 'Contact']} />
                     <Header />
-                    <Content {...this.props} />
+                    {this.props.children} 
                 </div>
     }
 });
-
-function mapStateToProps(state, props) {
-    return {
-        isPopupVisible: state.app.get('isPopupVisible'),
-        isEditMode: state.app.get('isEditMode'),
-        currentView: state.app.get('currentView'),
-        persons: state.app.get('persons').valueSeq(),
-        events: state.app.get('events').valueSeq(),
-        friends: state.app.get('friends').valueSeq(),
-        announcements: state.app.get('announcements').valueSeq()
-    };
-}
-
-export default connect(mapStateToProps, actionCreators)(App);

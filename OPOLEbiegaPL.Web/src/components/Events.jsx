@@ -1,6 +1,8 @@
 ﻿import React from 'react';
+import {connect} from 'react-redux';
+import * as actionCreators from '../action_creators';
 
-export default React.createClass({
+export const Events = React.createClass({
     getEvents: function() {
         return this.props.events || [];
     },
@@ -23,3 +25,13 @@ export default React.createClass({
                 </div>;
 }
 });
+
+function mapStateToProps(state, props) {
+    return {
+        isPopupVisible: state.app.get('isPopupVisible'),
+        isEditMode: state.app.get('isEditMode'),
+        events: state.app.get('events').valueSeq()
+    };
+}
+
+export default connect(mapStateToProps, actionCreators)(Events);

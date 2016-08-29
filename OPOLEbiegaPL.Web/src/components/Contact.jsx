@@ -1,8 +1,10 @@
 ﻿import React from 'react';
+import {connect} from 'react-redux';
+import * as actionCreators from '../action_creators';
 import Styles from '../helpers/styles'
 import InputHelper from '../helpers/inputHelpers'
 
-export default React.createClass({
+export const Contact = React.createClass({
     getInitialState: function() {
         return {
             name: '',
@@ -37,3 +39,9 @@ export default React.createClass({
                 </div>;
     }
 });
+
+function mapStateToProps(state, props) {
+    return {};
+}
+
+export default connect(mapStateToProps, actionCreators)(Contact);

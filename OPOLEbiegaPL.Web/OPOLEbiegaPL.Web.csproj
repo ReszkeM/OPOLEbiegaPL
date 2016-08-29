@@ -120,7 +120,6 @@
     <Content Include="src\components\Menu.jsx" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
-    <Content Include="src\components\Content.jsx" />
     <Content Include="src\components\Header.jsx" />
     <Content Include="src\components\Persons.jsx" />
     <Content Include="src\components\Events.jsx" />
