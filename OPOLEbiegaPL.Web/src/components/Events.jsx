@@ -3,6 +3,13 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
 
 export const Events = React.createClass({
+    getInitialState: function() {
+        if (this.props.events.size === 0){
+            this.props.setState({}, 'http://localhost:57174/api/EventApi/GetAll', 'events');
+        }
+        return null;
+    },
+
     getEvents: function() {
         return this.props.events || [];
     },

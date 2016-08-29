@@ -3,6 +3,13 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
 
 export const Announcements = React.createClass({
+    getInitialState: function() {
+        if (this.props.announcements.size === 0){
+            this.props.setState({}, 'http://localhost:57174/api/AnnouncementApi/GetAll', 'announcements');
+        }
+        return null;
+    },
+
     getAnnouncements: function() {
         return this.props.announcements || [];
     },

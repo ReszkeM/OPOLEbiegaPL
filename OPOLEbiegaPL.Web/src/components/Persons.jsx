@@ -3,6 +3,13 @@ import {connect} from 'react-redux';
 import * as actionCreators from '../action_creators';
 
 export const Persons = React.createClass({
+    getInitialState: function() {
+        if (this.props.persons.size === 0){
+            this.props.setState({}, 'http://localhost:57174/api/PersonApi/GetAll', 'persons');
+        }
+        return null;
+    },
+
     getPersons: function() {
         return this.props.persons || [];
     },
