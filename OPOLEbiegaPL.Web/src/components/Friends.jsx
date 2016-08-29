@@ -6,6 +6,13 @@ import FriendEdit from './popups/FriendEdit'
 export default React.createClass({
     choosenObject: [],
     title: '',
+        
+    getInitialState: function() {
+        if (this.props.friends.size === 0){
+            this.props.setState({}, 'http://localhost:57174/api/FriendApi/GetAll', 'friends');
+        }
+        return null;
+    },
 
     getFriends: function() {
         return this.props.friends || [];
@@ -29,7 +36,7 @@ export default React.createClass({
               : null
     },
 
-    render: function() {
+render: function() {
         return  <div className="friends">
                     {this.getFriends().map( ([id, name, url]) =>
                         <div key={id[1]}>

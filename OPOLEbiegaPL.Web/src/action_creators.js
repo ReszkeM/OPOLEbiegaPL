@@ -5,12 +5,13 @@
     };
 }
 
-export function setState(state, url) {
+export function setState(state, url, propName) {
     return {
         meta: {
             remote: true,
             method: 'GET',
-            url: url
+            url: url,
+            propName: propName
         },
         type: 'SET_STATE',
         state

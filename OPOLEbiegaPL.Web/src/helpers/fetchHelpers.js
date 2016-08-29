@@ -58,7 +58,7 @@ function handleGET(store, url, propName) {
 };
 
 function getInitialData(action, store) {
-    handleGET(store, 'http://localhost:57174/api/FriendApi/GetAll', 'friends');
+//    handleGET(store, 'http://localhost:57174/api/FriendApi/GetAll', 'friends');
     handleGET(store, 'http://localhost:57174/api/EventApi/GetAll', 'events');
     handleGET(store, 'http://localhost:57174/api/PersonApi/GetAll', 'persons');
     handleGET(store, 'http://localhost:57174/api/AnnouncementApi/GetAll', 'announcements');
