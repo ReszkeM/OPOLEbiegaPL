@@ -8,8 +8,5 @@ export default store => next => action => {
             fetchHelper.sendData(action, store);
         }
     }
-    if (action.type === 'SET_INITIAL_STATE') {
-        fetchHelper.getInitialData(action, store);
-    }
     return next(action);
 }

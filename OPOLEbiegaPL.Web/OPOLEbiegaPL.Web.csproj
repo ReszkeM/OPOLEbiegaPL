@@ -130,6 +130,7 @@
     <Content Include="src\components\Home.jsx" />
     <Content Include="src\components\popups\FriendEdit.jsx" />
     <Content Include="src\components\popups\Modal.jsx" />
+    <Content Include="src\components\Footer.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
