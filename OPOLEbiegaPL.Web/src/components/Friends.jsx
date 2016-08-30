@@ -1,17 +1,21 @@
 ﻿import React from 'react';
 import {connect} from 'react-redux';
-import * as actionCreators from '../action_creators';
 import Styles from '../helpers/styles'
+import ComponentHelper from '../helpers/componentHelper'
 import Modal from './popups/Modal';
 import FriendEdit from './popups/FriendEdit'
 
 export const Friends = React.createClass({
-    choosenObject: [],
-    title: '',
-
+    config: {
+        url: 'http://localhost:57174/api/FriendApi',
+        type: 'SET_FRIENDS',
+        object: [],
+        title: ''
+    },
+    
     getInitialState: function() {
         if (this.props.friends.length === 0){
-            this.props.setState({}, 'http://localhost:57174/api/FriendApi/GetAll', 'friends');
+            this.props.actions.setState({}, this.config);
         }
         return null;
     },
@@ -33,15 +37,15 @@ export const Friends = React.createClass({
     },
 
     editButtonClick: function(text, model, isEditMode) {
-        this.props.showWindow(isEditMode);
-        this.choosenObject = model;
-        this.title = text;
+        this.props.modalActions.showWindow(isEditMode);
+        this.config.object = model;
+        this.config.title = text;
     },
 
     modalRender: function() {
       return this.props.isPopupVisible ?
               <div id="editWindow">
-                  <Modal {...this.props} title={this.title} component={FriendEdit} object={this.choosenObject} />
+                  <Modal {...this.props} config={this.config} component={FriendEdit} />
               </div>
               : null
     },
@@ -56,12 +60,4 @@ export const Friends = React.createClass({
     }
 });
 
-function mapStateToProps(state, props) {
-    return {
-        isPopupVisible: state.app.isPopupVisible,
-        isEditMode: state.app.isEditMode,
-        friends: state.app.friends
-    };
-}
-
-export default connect(mapStateToProps, actionCreators)(Friends);
+export default connect(ComponentHelper.mapStateToProps, ComponentHelper.mapDispatchToProps)(Friends);

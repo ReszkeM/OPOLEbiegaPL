@@ -1,11 +1,18 @@
 ﻿import React from 'react';
 import {connect} from 'react-redux';
-import * as actionCreators from '../action_creators';
+import ComponentHelper from '../helpers/componentHelper'
 
 export const Announcements = React.createClass({
+    config: {
+        url: 'http://localhost:57174/api/AnnouncementApi',
+        type: 'SET_ANNOUNCEMENTS',
+        object: [],
+        title: '',
+    },
+
     getInitialState: function() {
         if (this.props.announcements.length === 0){
-            this.props.setState({}, 'http://localhost:57174/api/AnnouncementApi/GetAll', 'announcements');
+            this.props.actions.setState({}, this.config);
         }
         return null;
     },
@@ -29,12 +36,4 @@ export const Announcements = React.createClass({
     }
 });
 
-function mapStateToProps(state, props) {
-    return {
-        isPopupVisible: state.app.isPopupVisible,
-        isEditMode: state.app.isEditMode,
-        announcements: state.app.announcements
-    };
-}
-
-export default connect(mapStateToProps, actionCreators)(Announcements);
+export default connect(ComponentHelper.mapStateToProps, ComponentHelper.mapDispatchToProps)(Announcements);

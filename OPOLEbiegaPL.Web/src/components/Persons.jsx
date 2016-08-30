@@ -1,11 +1,18 @@
 ﻿import React from 'react';
 import {connect} from 'react-redux';
-import * as actionCreators from '../action_creators';
+import ComponentHelper from '../helpers/componentHelper'
 
 export const Persons = React.createClass({
+    config: {
+        url: 'http://localhost:57174/api/PersonApi',
+        type: 'SET_PERSONS',
+        object: [],
+        title: ''
+    },
+
     getInitialState: function() {
         if (this.props.persons.length === 0){
-            this.props.setState({}, 'http://localhost:57174/api/PersonApi/GetAll', 'persons');
+            this.props.actions.setState({}, this.config);
         }
         return null;
     },
@@ -26,12 +33,4 @@ export const Persons = React.createClass({
     }
 });
 
-function mapStateToProps(state, props) {
-    return {
-        isPopupVisible: state.app.isPopupVisible,
-        isEditMode: state.app.isEditMode,
-        persons: state.app.persons
-    };
-}
-
-export default connect(mapStateToProps, actionCreators)(Persons);
+export default connect(ComponentHelper.mapStateToProps, ComponentHelper.mapDispatchToProps)(Persons);

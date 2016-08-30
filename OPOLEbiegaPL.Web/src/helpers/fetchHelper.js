@@ -1,4 +1,4 @@
-﻿import {setState} from '../action_creators';
+﻿import {setState} from '../actions/global_actions';
 import * as ToastrHelper from './toastrHelper';
 
 function fetchGET (url, callback, jsonCallback) {
@@ -32,25 +32,25 @@ function handlePOST(action, store) {
             ToastrHelper.requestResult(result);
         },
         (result) => {
-            if (action && action.meta && action.meta.propName) {
+            if (action && action.meta && action.meta.type) {
                 store.dispatch({
-                    type: "SET_STATE",
-                    state: { [action.meta.propName.toLowerCase()]: result }
+                    type: action.meta.type,
+                    state: result
                 });
             }
         }
     );
 };
 
-function handleGET(store, url, propName) {
+function handleGET(store, url, type) {
     fetchGET(url, 
         (result) => {
             return result.json();
         },
         (result) => {
             store.dispatch({
-                type: 'SET_STATE',
-                state: { [propName]: result }
+                type: type,
+                state: result
             });
             return result;
         }

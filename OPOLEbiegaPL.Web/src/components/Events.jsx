@@ -1,11 +1,18 @@
 ﻿import React from 'react';
 import {connect} from 'react-redux';
-import * as actionCreators from '../action_creators';
+import ComponentHelper from '../helpers/componentHelper'
 
 export const Events = React.createClass({
+    config: {
+        url: 'http://localhost:57174/api/EventApi',
+        type: 'SET_EVENTS',
+        object: [],
+        title: '',
+    },
+
     getInitialState: function() {
         if (this.props.events.length === 0){
-            this.props.setState({}, 'http://localhost:57174/api/EventApi/GetAll', 'events');
+            this.props.actions.setState({}, this.config);
         }
         return null;
     },
@@ -29,12 +36,4 @@ export const Events = React.createClass({
     }
 });
 
-function mapStateToProps(state, props) {
-    return {
-        isPopupVisible: state.app.isPopupVisible,
-        isEditMode: state.app.isEditMode,
-        events: state.app.events
-    };
-}
-
-export default connect(mapStateToProps, actionCreators)(Events);
+export default connect(ComponentHelper.mapStateToProps, ComponentHelper.mapDispatchToProps)(Events);
