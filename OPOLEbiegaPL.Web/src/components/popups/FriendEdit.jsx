@@ -7,13 +7,13 @@ export default React.createClass({
                   <div className="form-group row">
                       <label className="col-md-3" style={Styles.label}>Nazwa: </label>
                       <div className="col-md-9">
-                          <input className="form-control" id="name" type="text" defaultValue={this.props.name} onChange={this.props.handleChange} />
+                          <input className="form-control" id="name" type="text" defaultValue={this.props.Name} onChange={this.props.handleChange} />
                       </div>
                   </div>
                   <div className="form-group row">
                       <label className="col-md-3" style={Styles.label}>Obrazek: </label>
                       <div className="col-md-9">
-                          <input className="form-control" id="imageURL" type="text" defaultValue={this.props.imageURL} onChange={this.props.handleChange} />
+                          <input className="form-control" id="imageURL" type="text" defaultValue={this.props.ImageURL} onChange={this.props.handleChange} />
                       </div>
                   </div>
               </div>

@@ -1,11 +1,8 @@
-﻿import {Map} from 'immutable';
-import * as ToastrHelper from './helpers/toastrHelper';
-
-function setState(state, newState) {
-    return state.merge(newState);
+﻿function setState(state, newState) {
+    return Object.assign({}, state, newState);
 }
 
-export default function(state = Map(), action) {
+export default function(state = {}, action) {
     switch (action.type) {
         case 'SET_STATE':
         case 'SET_INITIAL_STATE':

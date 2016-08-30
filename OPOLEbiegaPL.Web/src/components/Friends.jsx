@@ -10,24 +10,32 @@ export const Friends = React.createClass({
     title: '',
 
     getInitialState: function() {
-        if (this.props.friends.size === 0){
+        if (this.props.friends.length === 0){
             this.props.setState({}, 'http://localhost:57174/api/FriendApi/GetAll', 'friends');
         }
         return null;
     },
 
-    getFriends: function() {
-        return this.props.friends || [];
+    renderListOfItems: function() {
+        return this.props.friends.map( (friend) =>
+            <div key={friend.Id}>
+                <h1>{friend.Name}</h1>
+                <img src={friend.ImageURL} style={Styles.logo} alt="logo" className="img-responsive"/>
+                { this.renderEditButton('Edytuj', friend, true) }
+            </div>
+        );
     },
 
-    editButton: function(text, model, isEditMode) {
+    renderEditButton: function(text, model, isEditMode) {
       return <div className="form-group">
-                <button className="btn btn-success btn-lg" type="submit" onClick={() => {
-                    this.props.showWindow(isEditMode);
-                    this.choosenObject = model;
-                    this.title = text;}
-                }>{text}</button>
+                <button className="btn btn-success btn-lg" type="submit" onClick={() => this.editButtonClick(text, model, isEditMode)}>{text}</button>
               </div>
+    },
+
+    editButtonClick: function(text, model, isEditMode) {
+        this.props.showWindow(isEditMode);
+        this.choosenObject = model;
+        this.title = text;
     },
 
     modalRender: function() {
@@ -38,27 +46,21 @@ export const Friends = React.createClass({
               : null
     },
 
-render: function() {
+    render: function() {
         return  <div className="friends">
-                    {this.getFriends().map( ([id, name, url]) =>
-                        <div key={id[1]}>
-                            <h1>{name[1]}</h1>
-                            <img src={url[1]} style={Styles.logo} alt="logo" className="img-responsive"/>
-                            { this.editButton('Edytuj', {id: id[1], name: name[1], imageURL: url[1]}, true) }
-                        </div>
-                    )}
+                    { this.renderListOfItems() }
                     <hr />
-                    { this.editButton('Dodaj', {id: -1, name: '', imageURL: ''}, false) }
+                    { this.renderEditButton('Dodaj', {}, false) }
                     { this.modalRender() }
-                </div>;
+                </div>
     }
 });
 
 function mapStateToProps(state, props) {
     return {
-        isPopupVisible: state.app.get('isPopupVisible'),
-        isEditMode: state.app.get('isEditMode'),
-        friends: state.app.get('friends').valueSeq()
+        isPopupVisible: state.app.isPopupVisible,
+        isEditMode: state.app.isEditMode,
+        friends: state.app.friends
     };
 }
 

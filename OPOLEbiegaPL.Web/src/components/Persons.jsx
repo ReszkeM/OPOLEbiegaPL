@@ -4,36 +4,33 @@ import * as actionCreators from '../action_creators';
 
 export const Persons = React.createClass({
     getInitialState: function() {
-        if (this.props.persons.size === 0){
+        if (this.props.persons.length === 0){
             this.props.setState({}, 'http://localhost:57174/api/PersonApi/GetAll', 'persons');
         }
         return null;
     },
 
-    getPersons: function() {
-        return this.props.persons || [];
-    },
-    getParam: function(entry, paramName) {
-        return entry.get(paramName)
+    renderListOfItems: function() {
+        return this.props.persons.map( (person) =>
+            <div key={person.LastName}>
+                <h1>{person.FirstName} {person.LastName}</h1>
+                <p>{person.Description}</p>
+            </div>
+        );
     },
 
     render: function() {
         return  <div className="persons">
-                    {this.getPersons().map(entry =>
-                        <div key={this.getParam(entry, 'LastName')}>
-                            <h1>{this.getParam(entry, 'FirstName')} {this.getParam(entry, 'LastName')}</h1>
-                            <p>{this.getParam(entry, 'Description')}</p>
-                        </div>
-                    )}
-                </div>;
+                    { this.renderListOfItems() }
+                </div>
     }
 });
 
 function mapStateToProps(state, props) {
     return {
-        isPopupVisible: state.app.get('isPopupVisible'),
-        isEditMode: state.app.get('isEditMode'),
-        persons: state.app.get('persons').valueSeq()
+        isPopupVisible: state.app.isPopupVisible,
+        isEditMode: state.app.isEditMode,
+        persons: state.app.persons
     };
 }
 

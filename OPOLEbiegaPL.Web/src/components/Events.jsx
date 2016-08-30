@@ -4,40 +4,36 @@ import * as actionCreators from '../action_creators';
 
 export const Events = React.createClass({
     getInitialState: function() {
-        if (this.props.events.size === 0){
+        if (this.props.events.length === 0){
             this.props.setState({}, 'http://localhost:57174/api/EventApi/GetAll', 'events');
         }
         return null;
     },
 
-    getEvents: function() {
-        return this.props.events || [];
-    },
-
-    getParam: function(entry, paramName) {
-        return entry.get(paramName)
+    renderListOfItems: function() {
+        return this.props.events.map( (event) =>
+            <div key={event.Name}>
+                <h1>{event.Name}</h1>
+                <p>{event.Place}</p>
+                <p>{event.Date}</p>
+                <p>{event.Distance}</p>
+                <p>{event.Description}</p>
+            </div>
+        );
     },
 
     render: function() {
         return  <div className="events">
-                    {this.getEvents().map(entry =>
-                        <div key={this.getParam(entry, 'Name')}>
-                            <h1>{this.getParam(entry, 'Name')}</h1>
-                            <p>{this.getParam(entry, 'Place')}</p>
-                            <p>{this.getParam(entry, 'Date')}</p>
-                            <p>{this.getParam(entry, 'Distance')}</p>
-                            <p>{this.getParam(entry, 'Description')}</p>
-                        </div>
-                    )}
-                </div>;
-}
+                    { this.renderListOfItems() }
+                </div>
+    }
 });
 
 function mapStateToProps(state, props) {
     return {
-        isPopupVisible: state.app.get('isPopupVisible'),
-        isEditMode: state.app.get('isEditMode'),
-        events: state.app.get('events').valueSeq()
+        isPopupVisible: state.app.isPopupVisible,
+        isEditMode: state.app.isEditMode,
+        events: state.app.events
     };
 }
 

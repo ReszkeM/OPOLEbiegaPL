@@ -61,7 +61,7 @@ ReactDOM.render(
                 <Route path="/" component={App}>
                     <IndexRoute component={Home}/>
                     <Route path="home" component={Home}  />
-                    <Route path="friends" component={Friends} store={store} />
+                    <Route path="friends" component={Friends} />
                     <Route path="contact" component={Contact} />
                     <Route path="persons" component={Persons} />
                     <Route path="events" component={Events} />
