@@ -5,8 +5,8 @@
 var initialState = {
     isPopupVisible: false, 
     isEditMode: false,
-    object: {},
-    title: ''
+    url: null,
+    title: null
 }
 
 module.exports = (state = initialState, action) => {
