@@ -1,21 +1,17 @@
 ﻿import React from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux'
 import Styles from '../helpers/styles'
 import ComponentHelper from '../helpers/componentHelper'
 import Modal from './popups/Modal';
 import FriendEdit from './popups/FriendEdit'
+import * as friendsActions from '../actions/friends_actions';
+import * as modalActions from '../actions/modal_actions';
 
-export const Friends = React.createClass({
-    config: {
-        url: 'http://localhost:57174/api/FriendApi',
-        type: 'SET_FRIENDS',
-        object: [],
-        title: ''
-    },
-    
+export const Friends = React.createClass({  
     getInitialState: function() {
         if (this.props.friends.length === 0){
-            this.props.actions.setState({}, this.config);
+            this.props.actions.setFriends({}, this.config);
         }
         return null;
     },
@@ -25,27 +21,31 @@ export const Friends = React.createClass({
             <div key={friend.Id}>
                 <h1>{friend.Name}</h1>
                 <img src={friend.ImageURL} style={Styles.logo} alt="logo" className="img-responsive"/>
-                { this.renderEditButton('Edytuj', friend, true) }
+                { this.renderEditButton(friend.Id) }
             </div>
         );
     },
 
-    renderEditButton: function(text, model, isEditMode) {
-      return <div className="form-group">
-                <button className="btn btn-success btn-lg" type="submit" onClick={() => this.editButtonClick(text, model, isEditMode)}>{text}</button>
-              </div>
+    renderEditButton: function(id = -1) {
+        var text = id > 0 ? 'Edytuj' : 'Dodaj';
+        return  <div className="form-group">
+                    <button className="btn btn-success btn-lg" type="submit" onClick={() => this.editButtonClick(text, id)}>{text}</button>
+                </div>
     },
 
-    editButtonClick: function(text, model, isEditMode) {
-        this.props.modalActions.showWindow(isEditMode);
-        this.config.object = model;
-        this.config.title = text;
+    editButtonClick: function(title, id) {
+        this.props.modalActions.showWindow({
+            isPopupVisible: true,
+            isEditMode: id > 0,
+            url: id > 0 ? 'http://localhost:57174/api/FriendApi/GetById/'+id : null,
+            title: title
+        });
     },
 
     modalRender: function() {
-      return this.props.isPopupVisible ?
+      return this.props.modal.isPopupVisible ?
               <div id="editWindow">
-                  <Modal {...this.props} config={this.config} component={FriendEdit} />
+                  <Modal {...this.props.modal} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} />
               </div>
               : null
     },
@@ -54,10 +54,24 @@ export const Friends = React.createClass({
         return  <div className="friends">
                     { this.renderListOfItems() }
                     <hr />
-                    { this.renderEditButton('Dodaj', {}, false) }
+                    { this.renderEditButton() }
                     { this.modalRender() }
                 </div>
     }
 });
 
-export default connect(ComponentHelper.mapStateToProps, ComponentHelper.mapDispatchToProps)(Friends);
+function mapStateToProps(state) {
+    return {
+        modal: state.modal,
+        friends: state.friends,
+    };
+};
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: bindActionCreators(friendsActions, dispatch),
+        modalActions: bindActionCreators(modalActions, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Friends);
