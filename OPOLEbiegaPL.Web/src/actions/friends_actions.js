@@ -1,11 +1,12 @@
 ﻿import * as ActionTypes from '../constants/action_types';
+import {friendsURLS} from '../constants/urls';
 
 export function setFriends(state) {
     return {
         meta: {
             remote: true,
             method: 'GET',
-            url: 'http://localhost:57174/api/FriendApi/GetAll',
+            url: friendsURLS.getAll,
             type: ActionTypes.SET_FRIENDS
         },
         type: ActionTypes.GET_NEW_LIST,
@@ -18,7 +19,7 @@ export function setFriend(state, id) {
         meta: {
             remote: state.isEditMode,
             method: 'GET',
-            url: 'http://localhost:57174/api/FriendApi/GetById/'+id,
+            url: friendsURLS.getById + id,
             type: ActionTypes.SET_OBJECT
         },
         type: ActionTypes.OPEN,
@@ -30,7 +31,7 @@ export function save(entry) {
     return {
         meta: {
             remote: true,
-            url: 'http://localhost:57174/api/FriendApi/Update',
+            url: friendsURLS.update,
             method: 'POST',
             type: ActionTypes.SET_FRIENDS
         },
@@ -43,7 +44,7 @@ export function remove(entry) {
     return {
         meta: {
             remote: true,
-            url: 'http://localhost:57174/api/FriendApi/Delete/'+entry,
+            url: friendsURLS.remove + entry,
             method: 'DELETE',
             type: ActionTypes.SET_FRIENDS
         },
