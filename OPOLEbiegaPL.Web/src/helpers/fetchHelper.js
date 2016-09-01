@@ -1,5 +1,6 @@
 ﻿import {setState} from '../actions/global_actions';
 import * as ToastrHelper from './toastrHelper';
+import * as ActionTypes from '../constants/action_types';
 
 function fetchGET (url, callback, jsonCallback) {
     fetch(url, {
@@ -29,13 +30,18 @@ function handlePOST(action, store) {
             return result.json();
         },
         (result) => {
+            // TODO message
             ToastrHelper.requestResult(result);
         },
         (result) => {
+            console.log(store.getState())
             if (action && action.meta && action.meta.type) {
                 store.dispatch({
                     type: action.meta.type,
                     state: result
+                });
+                store.dispatch({
+                    type: ActionTypes.CLOSE
                 });
             }
         }

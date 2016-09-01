@@ -35,7 +35,7 @@ export function save(entry) {
             method: 'POST',
             type: ActionTypes.SET_FRIENDS
         },
-        type: ActionTypes.CLOSE,
+        type: ActionTypes.WAIT_FOR_REQUEST_RESULT,
         entry
     }
 }
@@ -48,7 +48,7 @@ export function remove(entry) {
             method: 'DELETE',
             type: ActionTypes.SET_FRIENDS
         },
-        type: ActionTypes.CLOSE,
+        type: ActionTypes.WAIT_FOR_REQUEST_RESULT,
         entry
     }
 }

@@ -18,7 +18,7 @@ module.exports = (state = initialState, action) => {
         case ActionTypes.OPEN:
             return setState(state, action.state);
         case ActionTypes.SET_OBJECT:
-            return setState(state, action.state);
+            return setState(state, action.state);  
         default:
             return state;
     }
