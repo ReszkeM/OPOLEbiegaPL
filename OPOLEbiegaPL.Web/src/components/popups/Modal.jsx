@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import Styles from '../../helpers/styles'
 import ComponentHelper from '../../helpers/componentHelper'
-import FetchHelper from '../../helpers/fetchHelper'
 
 export default React.createClass({
     getInitialState: function() {
@@ -10,12 +9,6 @@ export default React.createClass({
             Name: '',
             ImageURL: ''
         };
-    },
-    
-    componentWillMount: function() {
-        if (this.props.isEditMode){
-            this.props.setObject(this.props.url)
-        }
     },
 
     componentWillReceiveProps: function(nextProps) {

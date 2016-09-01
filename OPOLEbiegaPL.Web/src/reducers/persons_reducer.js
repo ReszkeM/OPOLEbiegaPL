@@ -1,6 +1,8 @@
-﻿module.exports = (state = [], action) => {
+﻿import * as ActionTypes from '../constants/action_types';
+
+module.exports = (state = [], action) => {
     switch (action.type) {
-        case 'SET_PERSONS':
+        case ActionTypes.SET_PERSONS:
             return action.state;
         default:
             return state;

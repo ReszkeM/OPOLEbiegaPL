@@ -1,4 +1,6 @@
-﻿export function setState(state, config) {
+﻿import * as ActionTypes from '../constants/action_types';
+
+export function setState(state, config) {
     return {
         meta: {
             remote: true,
@@ -6,7 +8,7 @@
             url: config.url+'/GetAll',
             type: config.type
         },
-        type: 'GET_NEW_LIST',
+        type: ActionTypes.GET_NEW_LIST,
         state
     }
 }
@@ -19,7 +21,7 @@ export function save(entry, config) {
             method: 'POST',
             type: config.type
         },
-        type: 'CLOSE',
+        type: ActionTypes.CLOSE,
         entry
     }
 }
@@ -32,7 +34,7 @@ export function remove(entry, config) {
             method: 'DELETE',
             type: config.type
         },
-        type: 'CLOSE',
+        type: ActionTypes.CLOSE,
         entry
     }
 }

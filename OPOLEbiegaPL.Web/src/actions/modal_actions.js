@@ -1,24 +1,14 @@
-﻿export function showWindow(state) {
+﻿import * as ActionTypes from '../constants/action_types';
+
+export function showWindow(state) {
     return {
-        type: 'OPEN',
+        type: ActionTypes.OPEN,
         state
     }
 }
 
 export function hideWindow() {
     return {
-        type: 'CLOSE'
-    }
-}
-
-export function setObject(url) {
-    return {
-        meta: {
-            remote: true,
-            method: 'GET',
-            url: url,
-            type: 'SET_OBJECT'
-        },
-        type: 'GET_OBJECT'
+        type: ActionTypes.CLOSE
     }
 }

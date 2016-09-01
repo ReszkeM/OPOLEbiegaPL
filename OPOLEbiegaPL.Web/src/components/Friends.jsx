@@ -34,18 +34,17 @@ export const Friends = React.createClass({
     },
 
     editButtonClick: function(title, id) {
-        this.props.modalActions.showWindow({
+        this.props.actions.setFriend({
             isPopupVisible: true,
             isEditMode: id > 0,
-            url: id > 0 ? 'http://localhost:57174/api/FriendApi/GetById/'+id : null,
             title: title
-        });
+        }, id);
     },
 
     modalRender: function() {
       return this.props.modal.isPopupVisible ?
               <div id="editWindow">
-                  <Modal {...this.props.modal} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} />
+                  <Modal {...this.props.modal} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} action={friendsActions.setFriend} />
               </div>
               : null
     },
