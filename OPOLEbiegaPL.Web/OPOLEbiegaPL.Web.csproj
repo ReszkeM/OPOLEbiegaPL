@@ -108,41 +108,43 @@
     <Content Include="Scripts\react\react-with-addons.min.js" />
     <Content Include="Scripts\react\react.js" />
     <Content Include="Scripts\react\react.min.js" />
-    <Content Include="src\actions\contact_actions.js" />
-    <Content Include="src\actions\friends_actions.js" />
-    <Content Include="src\actions\modal_actions.js" />
-    <Content Include="src\actions\global_actions.js" />
-    <Content Include="src\components\inputs\Email.js" />
-    <Content Include="src\components\inputs\Phone.js" />
-    <Content Include="src\constants\action_types.js" />
-    <Content Include="src\constants\urls.js" />
-    <Content Include="src\helpers\fetchHelper.js" />
-    <Content Include="src\helpers\componentHelper.js" />
-    <Content Include="src\helpers\styles.js" />
-    <Content Include="src\helpers\toastrHelper.js" />
-    <Content Include="src\reducers\announcements_reducer.js" />
-    <Content Include="src\reducers\events_reducer.js" />
-    <Content Include="src\reducers\friends_reducer.js" />
-    <Content Include="src\reducers\persons_reducer.js" />
-    <Content Include="src\reducers\reducer.js" />
-    <Content Include="src\reducers\modal_reducer.js" />
-    <Content Include="src\remote_action_middleware.js" />
+    <Content Include="src\announcements\actions\announcements_actions.js" />
+    <Content Include="src\contact\actions\contact_actions.js" />
+    <Content Include="src\events\actions\events_actions.js" />
+    <Content Include="src\friends\actions\friends_actions.js" />
+    <Content Include="src\modal\actions\modal_actions.js" />
+    <Content Include="src\persons\actions\persons_actions.js" />
+    <Content Include="src\shared\components\inputs\Email.js" />
+    <Content Include="src\shared\components\inputs\Phone.js" />
+    <Content Include="src\shared\constants\action_types.js" />
+    <Content Include="src\shared\constants\urls.js" />
+    <Content Include="src\shared\helpers\fetchHelper.js" />
+    <Content Include="src\shared\helpers\componentHelper.js" />
+    <Content Include="src\shared\constants\styles.js" />
+    <Content Include="src\shared\helpers\toastrHelper.js" />
+    <Content Include="src\announcements\reducers\announcements_reducer.js" />
+    <Content Include="src\events\reducers\events_reducer.js" />
+    <Content Include="src\friends\reducers\friends_reducer.js" />
+    <Content Include="src\persons\reducers\persons_reducer.js" />
+    <Content Include="src\shared\reducers\reducer.js" />
+    <Content Include="src\modal\reducers\modal_reducer.js" />
+    <Content Include="src\shared\actions\remote_action_middleware.js" />
     <Content Include="Webpack.config.js" />
     <Content Include="src\index.jsx" />
-    <Content Include="src\components\Menu.jsx" />
+    <Content Include="src\shared\components\Menu.jsx" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
-    <Content Include="src\components\Header.jsx" />
-    <Content Include="src\components\Persons.jsx" />
-    <Content Include="src\components\Events.jsx" />
-    <Content Include="src\components\Friends.jsx" />
-    <Content Include="src\components\Announcements.jsx" />
-    <Content Include="src\components\Contact.jsx" />
-    <Content Include="src\components\App.jsx" />
-    <Content Include="src\components\Home.jsx" />
-    <Content Include="src\components\popups\FriendEdit.jsx" />
-    <Content Include="src\components\popups\Modal.jsx" />
-    <Content Include="src\components\Footer.jsx" />
+    <Content Include="src\shared\components\Header.jsx" />
+    <Content Include="src\persons\components\Persons.jsx" />
+    <Content Include="src\events\components\Events.jsx" />
+    <Content Include="src\friends\components\Friends.jsx" />
+    <Content Include="src\announcements\components\Announcements.jsx" />
+    <Content Include="src\contact\components\Contact.jsx" />
+    <Content Include="src\shared\components\App.jsx" />
+    <Content Include="src\home\components\Home.jsx" />
+    <Content Include="src\friends\components\FriendEdit.jsx" />
+    <Content Include="src\modal\components\Modal.jsx" />
+    <Content Include="src\shared\components\Footer.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,7 +158,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\contact\reducers\" />
+    <Folder Include="src\home\actions\" />
+    <Folder Include="src\home\reducers\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -6,23 +6,21 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
 
-
 // My actions
-import remoteActionMiddleware from './remote_action_middleware';
-import reducer from './reducers/reducer'
+import remoteActionMiddleware from './shared/actions/remote_action_middleware';
+import reducer from './shared/reducers/reducer'
 
 // Components
-import App from './components/App';
-import Menu from './components/Menu';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Persons from './components/Persons'
-import Events from './components/Events'
-import Friends from './components/Friends'
-import Contact from './components/Contact'
-import Home from './components/Home'
-import Announcements from './components/Announcements'
-
+import App from './shared/components/App';
+import Menu from './shared/components/Menu';
+import Header from './shared/components/Header';
+import Footer from './shared/components/Footer';
+import Home from './home/components/Home'
+import Persons from './persons/components/Persons'
+import Events from './events/components/Events'
+import Friends from './friends/components/Friends'
+import Contact from './contact/components/Contact'
+import Announcements from './announcements/components/Announcements'
 
 const createStoreWithMiddleware = applyMiddleware(remoteActionMiddleware)(createStore);
 const store = createStoreWithMiddleware(reducer);
