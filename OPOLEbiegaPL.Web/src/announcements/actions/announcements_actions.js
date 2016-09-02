@@ -1,11 +1,12 @@
 ﻿import * as ActionTypes from '../../shared/constants/action_types';
+import * as requestTypes from '../../shared/constants/request_types';
 import {AnnouncementsURLs} from '../../shared/constants/urls';
 
 export function setAnnouncements(state) {
     return {
         meta: {
             remote: true,
-            method: 'GET',
+            method: requestTypes.GET,
             url: AnnouncementsURLs.getAll,
             type: ActionTypes.SET_ANNOUNCEMENTS
         },
@@ -18,7 +19,7 @@ export function setAnnouncement(state, id) {
     return {
         meta: {
             remote: state.isEditMode,
-            method: 'GET',
+            method: requestTypes.GET,
             url: AnnouncementsURLs.getById + id,
             type: ActionTypes.SET_OBJECT
         },
@@ -32,7 +33,7 @@ export function save(entry) {
         meta: {
             remote: true,
             url: AnnouncementsURLs.update,
-            method: 'POST',
+            method: requestTypes.POST,
             type: ActionTypes.SET_ANNOUNCEMENTS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,
@@ -45,7 +46,7 @@ export function remove(entry) {
         meta: {
             remote: true,
             url: AnnouncementsURLs.remove + entry,
-            method: 'DELETE',
+            method: requestTypes.DELETE,
             type: ActionTypes.SET_ANNOUNCEMENTS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,

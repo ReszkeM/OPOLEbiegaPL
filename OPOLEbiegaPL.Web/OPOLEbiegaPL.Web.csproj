@@ -117,6 +117,7 @@
     <Content Include="src\shared\components\inputs\Email.js" />
     <Content Include="src\shared\components\inputs\Phone.js" />
     <Content Include="src\shared\constants\action_types.js" />
+    <Content Include="src\shared\constants\request_types.js" />
     <Content Include="src\shared\constants\urls.js" />
     <Content Include="src\shared\helpers\fetchHelper.js" />
     <Content Include="src\shared\helpers\componentHelper.js" />

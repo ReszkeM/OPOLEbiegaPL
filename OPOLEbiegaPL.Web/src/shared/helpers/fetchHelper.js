@@ -1,5 +1,6 @@
 ﻿import * as ToastrHelper from './toastrHelper';
 import * as ActionTypes from '../constants/action_types';
+import * as requestTypes from '../constants/request_types';
 
 function onSuccess(result) {
     ToastrHelper.removeAllToastrs();
@@ -40,7 +41,7 @@ function enforceGET(result, store, type) {
 function handleGET (store, url, type) {
     ToastrHelper.requestInProsess();
     fetch(url, {
-        method: 'GET',
+        method: requestTypes.GET,
         dataType: "json",
         contentType: "application/json; charset=utf-8"
     }).then(onSuccess, onError).then((result) => enforceGET(result, store, type));

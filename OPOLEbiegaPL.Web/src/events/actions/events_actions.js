@@ -1,11 +1,12 @@
 ﻿import * as ActionTypes from '../../shared/constants/action_types';
+import * as requestTypes from '../../shared/constants/request_types';
 import {eventsURLs} from '../../shared/constants/urls';
 
 export function setEvents(state) {
     return {
         meta: {
             remote: true,
-            method: 'GET',
+            method: requestTypes.GET,
             url: eventsURLs.getAll,
             type: ActionTypes.SET_EVENTS
         },
@@ -18,7 +19,7 @@ export function setEvent(state, id) {
     return {
         meta: {
             remote: state.isEditMode,
-            method: 'GET',
+            method: requestTypes.GET,
             url: eventsURLs.getById + id,
             type: ActionTypes.SET_OBJECT
         },
@@ -32,7 +33,7 @@ export function save(entry) {
         meta: {
             remote: true,
             url: eventsURLs.update,
-            method: 'POST',
+            method: requestTypes.POST,
             type: ActionTypes.SET_EVENTS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,
@@ -45,7 +46,7 @@ export function remove(entry) {
         meta: {
             remote: true,
             url: eventsURLs.remove + entry,
-            method: 'DELETE',
+            method: requestTypes.DELETE,
             type: ActionTypes.SET_EVENTS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,

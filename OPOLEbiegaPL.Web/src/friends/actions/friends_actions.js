@@ -1,11 +1,12 @@
 ﻿import * as ActionTypes from '../../shared/constants/action_types';
+import * as requestTypes from '../../shared/constants/request_types';
 import {friendsURLs} from '../../shared/constants/urls';
 
 export function setFriends(state) {
     return {
         meta: {
             remote: true,
-            method: 'GET',
+            method: requestTypes.GET,
             url: friendsURLs.getAll,
             type: ActionTypes.SET_FRIENDS
         },
@@ -18,7 +19,7 @@ export function setFriend(state, id) {
     return {
         meta: {
             remote: state.isEditMode,
-            method: 'GET',
+            method: requestTypes.GET,
             url: friendsURLs.getById + id,
             type: ActionTypes.SET_OBJECT
         },
@@ -32,7 +33,7 @@ export function save(entry) {
         meta: {
             remote: true,
             url: friendsURLs.update,
-            method: 'POST',
+            method: requestTypes.POST,
             type: ActionTypes.SET_FRIENDS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,
@@ -45,7 +46,7 @@ export function remove(entry) {
         meta: {
             remote: true,
             url: friendsURLs.remove + entry,
-            method: 'DELETE',
+            method: requestTypes.DELETE,
             type: ActionTypes.SET_FRIENDS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,

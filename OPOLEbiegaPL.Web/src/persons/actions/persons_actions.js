@@ -1,11 +1,12 @@
 ﻿import * as ActionTypes from '../../shared/constants/action_types';
+import * as requestTypes from '../../shared/constants/request_types';
 import {personsURLs} from '../../shared/constants/urls';
 
 export function setPersons(state) {
     return {
         meta: {
             remote: true,
-            method: 'GET',
+            method: requestTypes.GET,
             url: personsURLs.getAll,
             type: ActionTypes.SET_PERSONS
         },
@@ -18,7 +19,7 @@ export function setPerson(state, id) {
     return {
         meta: {
             remote: state.isEditMode,
-            method: 'GET',
+            method: requestTypes.GET,
             url: personsURLs.getById + id,
             type: ActionTypes.SET_OBJECT
         },
@@ -32,7 +33,7 @@ export function save(entry) {
         meta: {
             remote: true,
             url: personsURLs.update,
-            method: 'POST',
+            method: requestTypes.POST,
             type: ActionTypes.SET_PERSONS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,
@@ -45,7 +46,7 @@ export function remove(entry) {
         meta: {
             remote: true,
             url: personsURLs.remove + entry,
-            method: 'DELETE',
+            method: requestTypes.DELETE,
             type: ActionTypes.SET_PERSONS
         },
         type: ActionTypes.WAIT_FOR_REQUEST_RESULT,
