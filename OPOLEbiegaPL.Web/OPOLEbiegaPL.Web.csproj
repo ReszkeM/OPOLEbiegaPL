@@ -112,6 +112,8 @@
     <Content Include="src\actions\friends_actions.js" />
     <Content Include="src\actions\modal_actions.js" />
     <Content Include="src\actions\global_actions.js" />
+    <Content Include="src\components\inputs\Email.js" />
+    <Content Include="src\components\inputs\Phone.js" />
     <Content Include="src\constants\action_types.js" />
     <Content Include="src\constants\urls.js" />
     <Content Include="src\helpers\fetchHelper.js" />

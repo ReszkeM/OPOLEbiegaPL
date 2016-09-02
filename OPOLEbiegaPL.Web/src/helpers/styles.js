@@ -39,5 +39,10 @@ module.exports = {
   descriptionText: {
      fontFamily: 'Georgia',
      fontSize: '16px'
+  },
+  errorMessage: {
+      fontSize: '14px',
+      marginTop: '5px',
+      display: 'inline-block'
   }
 }

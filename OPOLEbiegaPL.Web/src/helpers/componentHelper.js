@@ -4,7 +4,7 @@ import * as modalActions from '../actions/modal_actions';
 
 module.exports = {
     textInputChange: function (event) {
-        var returnObj
+        var returnObj;
         var stateObject = function () {
             returnObj = {};
             returnObj[this.target.id] = this.target.value;
@@ -12,6 +12,16 @@ module.exports = {
         }.bind(event)();
 
         this.setState(stateObject);
+    },
+    enableButton: function() {
+        this.setState({
+            canSubmit: true
+        });
+    },
+    disableButton: function() {
+        this.setState({
+            canSubmit: false
+        });
     },
     mapStateToProps: function(state) {
         return {
