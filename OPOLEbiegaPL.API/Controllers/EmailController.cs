@@ -31,11 +31,11 @@ namespace OPOLEbiegaPL.API.Controllers
             try
             {
                 smtpClient.Send(mail);
-                return new JsonResult {Data = "Ok"};
+                return new JsonResult { ContentType = "Ok", Data = "Ok"};
             }
             catch (Exception e)
             {
-                return new JsonResult { Data = "COś poszło nie tak" };
+                return new JsonResult { ContentType = "Error", Data = "Coś poszło nie tak" };
             }
             
         }

@@ -2,12 +2,12 @@
 import * as ToastrHelper from './toastrHelper';
 import * as ActionTypes from '../constants/action_types';
 
-function fetchGET (url, callback, jsonCallback) {
+function fetchGET (url, success, error, jsonCallback) {
     fetch(url, {
         method: 'GET',
         dataType: "json",
         contentType: "application/json; charset=utf-8"
-    }).then(callback).then(jsonCallback);
+    }).then(success, error).then(jsonCallback);
 };
 
 function fetchPOST (action, succes, error, successCallback) {
@@ -26,15 +26,15 @@ function fetchPOST (action, succes, error, successCallback) {
 function handlePOST(action, store) {
     fetchPOST(action, 
         (result) => {
-            ToastrHelper.requestResult(result);
             return result.json();
         },
-        (result) => {
-            // TODO message
-            ToastrHelper.requestResult(result);
+        () => {
+            ToastrHelper.requestResult({
+                message: 'Nie można połączyć z serwerem'
+            });
         },
         (result) => {
-            console.log(store.getState())
+            ToastrHelper.requestResult(result);
             if (action && action.meta && action.meta.type) {
                 store.dispatch({
                     type: action.meta.type,
@@ -52,6 +52,11 @@ function handleGET(store, url, type) {
     fetchGET(url, 
         (result) => {
             return result.json();
+        },
+        () => {
+            ToastrHelper.requestResult({
+                message: 'Nie można połączyć z serwerem'
+            });
         },
         (result) => {
             store.dispatch({
