@@ -11,8 +11,14 @@ var requestResult = function (result) {
     }
 }
 
+var requestInProsess = function() {
+    toastr.info('Info', 'Oczekiwanie na odpowiedź serwera');
+}
+
 var toastrHelper = {
-    requestResult: requestResult
+    requestResult: requestResult,
+    requestInProsess: requestInProsess,
+    removeAllToastrs: toastr.clean
 };
 
 module.exports = toastrHelper;

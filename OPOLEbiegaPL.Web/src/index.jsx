@@ -54,7 +54,7 @@ ReactDOM.render(
                     <Route path="announcement" component={Announcements} />
                 </Route>
               </Router>
-            <ReduxToastr />
+            <ReduxToastr timeOut={3000} />
         </div>
     </Provider>,
     document.getElementById('content')
