@@ -14,7 +14,9 @@ export const Events = React.createClass({
         if (this.props.events.length === 0){
             this.props.actions.setEvents({});
         }
-        return null;
+        return {
+            showAll: false
+        }
     },
 
     renderListOfItems: function() {
@@ -29,9 +31,16 @@ export const Events = React.createClass({
         );
     },
 
+    expandButton: function () {
+        var buttonText = this.state.showAll === false ? 'Pokaż wszystkie' : 'Zwiń';
+        var func = this.state.showAll === false ? ComponentHelper.expand.bind(this) : ComponentHelper.collapse.bind(this, this.props.events)
+        return <button className="btn btn-link btn-lg" type="submit" onClick={func}>{buttonText}</button>
+    },
+
     render: function() {
         return  <div className="events">
                     { this.renderListOfItems() }
+                    { this.expandButton() }
                 </div>
     }
 });

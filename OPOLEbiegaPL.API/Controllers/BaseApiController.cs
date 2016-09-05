@@ -21,6 +21,11 @@ namespace OPOLEbiegaPL.API.Controllers
             return Repository.GetLast();
         }
 
+        public IEnumerable<T2> GetLatest()
+        {
+            return Repository.GetLatest();
+        }
+
         public IEnumerable<T2> GetAll()
         {
             return Repository.GetAll();

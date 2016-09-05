@@ -7,10 +7,30 @@ export function setEvents(state) {
         meta: {
             remote: true,
             method: requestTypes.GET,
+            url: eventsURLs.getLatest,
+            type: ActionTypes.SET_EVENTS
+        },
+        type: ActionTypes.GET_NEW_LIST,
+        state
+    }
+}
+
+export function expand(state) {
+    return {
+        meta: {
+            remote: true,
+            method: requestTypes.GET,
             url: eventsURLs.getAll,
             type: ActionTypes.SET_EVENTS
         },
         type: ActionTypes.GET_NEW_LIST,
+        state
+    }
+}
+
+export function collapse(state) {
+    return {
+        type: ActionTypes.SET_EVENTS,
         state
     }
 }

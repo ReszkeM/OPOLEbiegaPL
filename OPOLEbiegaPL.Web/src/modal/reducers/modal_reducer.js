@@ -7,7 +7,6 @@ function setState(state, newState) {
 var initialState = {
     isPopupVisible: false, 
     isEditMode: false,
-    url: null,
     title: null
 }
 

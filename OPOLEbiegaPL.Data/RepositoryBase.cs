@@ -13,6 +13,14 @@ namespace OPOLEbiegaPL.Data
             return Store.SingleOrDefault(x => x.Id == id);
         }
 
+        public List<T> GetLatest()
+        {
+            return Store
+                .GetRange(Store.Count - 5, 5)
+                .OrderByDescending(x => x.Id)
+                .ToList();
+        }
+
         public T GetLast()
         {
             return Store.Last();
@@ -20,7 +28,9 @@ namespace OPOLEbiegaPL.Data
 
         public List<T> GetAll()
         {
-            return Store;
+            return Store
+                .OrderByDescending(x => x.Id)
+                .ToList();
         }
 
         public virtual T Add(T entity)
