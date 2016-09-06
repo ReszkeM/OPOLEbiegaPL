@@ -9,7 +9,7 @@ import {setFriend} from '../../shared/helpers/stateHelper'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // components
-import EditModal from '../../modal/components/EditModal';
+import Modal from '../../modal/components/Modal';
 import FriendEdit from './FriendEdit'
 
 // actions
@@ -52,7 +52,7 @@ export const Friends = React.createClass({
     modalRender: function() {
       return this.props.modal.isPopupVisible ?
               <div id="editWindow">
-                  <EditModal {...this.props.modal} state={friend} setObject={setFriend} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} />
+                  <Modal {...this.props.modal} state={friend} setObject={setFriend} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} isAdminMode={true} />
               </div>
               : null
     },
