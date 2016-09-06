@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 // helpers and constants
+import Button from '../../shared/components/inputs/Button'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // actions
@@ -34,7 +35,7 @@ export const Events = React.createClass({
     expandButton: function () {
         var buttonText = this.state.showAll === false ? 'Pokaż wszystkie' : 'Zwiń';
         var func = this.state.showAll === false ? ComponentHelper.expand.bind(this) : ComponentHelper.collapse.bind(this, this.props.events)
-        return <button className="btn btn-link btn-lg" type="submit" onClick={func}>{buttonText}</button>
+        return <Button onClick={func} text={buttonText} type={'link'} />
     },
 
     render: function() {

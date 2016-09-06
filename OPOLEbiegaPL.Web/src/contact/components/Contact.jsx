@@ -6,6 +6,7 @@ import {title, textArea} from '../../shared/constants/styles'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // input components
+import Button from '../../shared/components/inputs/Button'
 import {Phone} from '../../shared/components/inputs/Phone';
 import {Email} from '../../shared/components/inputs/Email';
 
@@ -44,7 +45,7 @@ export const Contact = React.createClass({
                                 <textarea className="form-control" id="message" style={textArea} value={this.state.message} onChange={ComponentHelper.textInputChange.bind(this)} placeholder="Message" />
                             </div>
                             <div className="form-group">
-                                <button className="btn btn-success btn-lg" type="submit" disabled={!this.state.canSubmit} onClick={() => this.props.submit(this.state)}>Wyślij</button>
+                                <Button onClick={() => this.props.submit(this.state)} disabled={!this.state.canSubmit} text={'Wyślij'} type={'edit'} />
                             </div>
                         </Formsy.Form>
                         

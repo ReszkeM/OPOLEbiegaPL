@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 // helpers and constants
-import ComponentHelper from '../../shared/helpers/componentHelper'
 import {setPerson} from '../../shared/helpers/stateHelper'
 import {person} from '../../shared/constants/initialStates'
 import {block} from '../../shared/constants/styles'
@@ -14,8 +13,8 @@ import * as personsActions from '../actions/persons_actions';
 import * as modalActions from '../../modal/actions/modal_actions';
 
 // components
-import Modal from '../../modal/components/Modal.jsx';
-import PersonDetails from './PersonDetails.jsx';
+import Modal from '../../modal/components/Modal';
+import PersonDetails from './PersonDetails';
 import {Person} from './Person';
 
 export const Persons = React.createClass({
@@ -40,7 +39,7 @@ export const Persons = React.createClass({
     modalRender: function() {
         return this.props.modal.isPopupVisible ?
             <div id="editWindow">
-                <Modal {...this.props.modal} state={person} setObject={setPerson} {...this.props.actions} {...this.props.modalActions} component={PersonDetails} isAdminMode={false} />
+                <Modal {...this.props.modal} state={person} setObject={setPerson} {...this.props.modalActions} component={PersonDetails} isAdminMode={false} />
             </div>
               : null
     },

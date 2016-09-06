@@ -150,6 +150,7 @@
     <Content Include="src\shared\components\Footer.jsx" />
     <Content Include="src\persons\components\Person.jsx" />
     <Content Include="src\persons\components\PersonDetails.jsx" />
+    <Content Include="src\shared\components\inputs\Button.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

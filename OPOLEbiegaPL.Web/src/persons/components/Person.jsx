@@ -1,4 +1,5 @@
 ﻿import React from 'react';
+import Button from '../../shared/components/inputs/Button'
 
 // helpers and constants
 import {inlineLogo, inlineHeader, sliderItem} from '../../shared/constants/styles'
@@ -10,7 +11,7 @@ export const Person = React.createClass({
                     <h1 style={inlineHeader}>{this.props.person.FirstName} {this.props.person.LastName}</h1>
                     <hr />
                     <p>{this.props.person.ShortDescription}</p>
-                    <button className="btn btn-link btn-lg" type="submit" onClick={() => this.props.action(this.props.person.Id)}>czytaj więcej</button>
+                    <Button onClick={() => this.props.action(this.props.person.Id)} text={'czytaj więcej'} type={'link'} />
                 </div>
     }
 });

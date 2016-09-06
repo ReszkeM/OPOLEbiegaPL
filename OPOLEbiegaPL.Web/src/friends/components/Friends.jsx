@@ -3,12 +3,12 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 // helpers and constants
-import Styles from '../../shared/constants/styles'
+import {logo} from '../../shared/constants/styles'
 import {friend} from '../../shared/constants/initialStates'
 import {setFriend} from '../../shared/helpers/stateHelper'
-import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // components
+import Button from '../../shared/components/inputs/Button'
 import Modal from '../../modal/components/Modal';
 import FriendEdit from './FriendEdit'
 
@@ -28,7 +28,7 @@ export const Friends = React.createClass({
         return this.props.friends.map( (friend) =>
             <div key={friend.Id}>
                 <h1>{friend.Name}</h1>
-                <img src={friend.ImageURL} style={Styles.logo} alt="logo" className="img-responsive"/>
+                <img src={friend.ImageURL} style={logo} alt="logo" className="img-responsive"/>
                 { this.renderEditButton(friend.Id) }
             </div>
         );
@@ -36,9 +36,7 @@ export const Friends = React.createClass({
 
     renderEditButton: function(id = -1) {
         var text = id > 0 ? 'Edytuj' : 'Dodaj';
-        return  <div className="form-group">
-                    <button className="btn btn-success btn-lg" type="submit" onClick={() => this.editButtonClick(text, id)}>{text}</button>
-                </div>
+        return  <Button onClick={() => this.editButtonClick(text, id)} text={text} type={'edit'} />
     },
 
     editButtonClick: function(title, id) {

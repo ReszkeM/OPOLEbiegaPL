@@ -1,5 +1,6 @@
 import React from 'react';
 import {modalWindow, windowTitle} from '../../shared/constants/styles'
+import Button from '../../shared/components/inputs/Button'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 export default React.createClass({
@@ -12,15 +13,15 @@ export default React.createClass({
     },
 
     renderDetailsButtons: function(){
-      return <button className="btn btn-default" onClick={() => this.props.hideWindow()}> Zamknij </button>
+        return <Button onClick={() => this.props.hideWindow()} text={'Zamknij'} />
     },
 
     renderEditButtons: function(){
-      return <div>
-                <button className="btn btn-default" onClick={() => this.props.hideWindow()}> Anuluj </button>
-                {this.props.isEditMode ? <button className="btn btn-danger" onClick={() => this.props.remove(this.state.Id)}> Usuń </button> : null}
-                <button className="btn btn-primary" onClick={() => this.props.save(this.state)}> Zapisz </button>
-            </div>
+        return  <div>
+                    <Button onClick={() => this.props.hideWindow()} text={'Anuluj'} />
+                    <Button onClick={() => this.props.remove(this.state.Id)} text={'Usuń'} type={'remove'} isEditMode={this.props.isEditMode} />
+                    <Button onClick={() => this.props.save(this.state)} text={'Zapisz'} type={'save'} />
+                </div>
     },
 
     render: function () {
