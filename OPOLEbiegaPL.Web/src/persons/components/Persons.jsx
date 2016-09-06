@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 
 // helpers and constants
 import ComponentHelper from '../../shared/helpers/componentHelper'
+import {setPerson} from '../../shared/helpers/stateHelper'
+import {person} from '../../shared/constants/initialStates'
 import {block} from '../../shared/constants/styles'
 
 // actions
@@ -12,6 +14,8 @@ import * as personsActions from '../actions/persons_actions';
 import * as modalActions from '../../modal/actions/modal_actions';
 
 // components
+import DetailsModal from '../../modal/components/DetailsModal';
+import PersonDetails from './PersonDetails.jsx';
 import {Person} from './Person';
 
 export const Persons = React.createClass({
@@ -27,15 +31,31 @@ export const Persons = React.createClass({
         if( this.props.persons.length !== 0){
             return  <Carousel style={block} className="center-block">
                         { this.props.persons.map( (person) =>
-                            <Person key={person.Id} person={person} /> 
+                            <Person key={person.Id} person={person} action={this.showDetailsButtonClick} /> 
                         )}
                     </Carousel>
         }
     },
 
+    modalRender: function() {
+        return this.props.modal.isPopupVisible ?
+            <div id="editWindow">
+                <DetailsModal {...this.props.modal} state={person} setObject={setPerson} {...this.props.actions} {...this.props.modalActions} component={PersonDetails} />
+            </div>
+              : null
+    },
+
+    showDetailsButtonClick: function(id) {
+        this.props.actions.setPerson({
+            isPopupVisible: true,
+            title: "Pełny opis"
+        }, id);
+    },
+
     render: function() {
         return  <div className="persons">
                     { this.renderPersonCarousel() }
+                    { this.modalRender() }
                 </div>
     }
 });

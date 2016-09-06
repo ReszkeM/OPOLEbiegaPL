@@ -4,10 +4,12 @@ import { bindActionCreators } from 'redux'
 
 // helpers and constants
 import Styles from '../../shared/constants/styles'
+import {friend} from '../../shared/constants/initialStates'
+import {setFriend} from '../../shared/helpers/stateHelper'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // components
-import Modal from '../../modal/components/Modal';
+import EditModal from '../../modal/components/EditModal';
 import FriendEdit from './FriendEdit'
 
 // actions
@@ -50,7 +52,7 @@ export const Friends = React.createClass({
     modalRender: function() {
       return this.props.modal.isPopupVisible ?
               <div id="editWindow">
-                  <Modal {...this.props.modal} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} action={friendsActions.setFriend} />
+                  <EditModal {...this.props.modal} state={friend} setObject={setFriend} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} />
               </div>
               : null
     },

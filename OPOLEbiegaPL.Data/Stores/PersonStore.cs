@@ -49,9 +49,25 @@ namespace OPOLEbiegaPL.Data.Stores
                 {
                     new Achievement
                     {
-                        EventName = "Event",
+                        Id = 1,
+                        EventName = "Maraton",
+                        Distance = 42.2,
+                        Time = new TimeSpan(3, 30, 00)
+                    },
+
+                    new Achievement
+                    {
+                        Id = 2,
+                        EventName = "Półmaraton",
                         Distance = 21.1,
                         Time = new TimeSpan(1, 45, 00)
+                    },
+                    new Achievement
+                    {
+                        Id = 3,
+                        EventName = "10km",
+                        Distance = 10,
+                        Time = new TimeSpan(0, 45, 00)
                     }
                 }
             };

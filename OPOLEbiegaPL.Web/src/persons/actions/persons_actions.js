@@ -18,7 +18,7 @@ export function setPersons(state) {
 export function setPerson(state, id) {
     return {
         meta: {
-            remote: state.isEditMode,
+            remote: true,
             method: requestTypes.GET,
             url: personsURLs.getById + id,
             type: ActionTypes.SET_OBJECT
