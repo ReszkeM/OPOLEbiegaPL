@@ -1,6 +1,8 @@
 module.exports = {
   modalWindow: {
-      display: 'block'
+      display: 'block',
+      overflow: 'auto',
+      fontSize: '16'
   },
   windowTitle: {
       fontWeight: 'bold'
