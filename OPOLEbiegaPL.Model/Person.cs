@@ -8,6 +8,7 @@ namespace OPOLEbiegaPL.Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
+        public string ShortDescription { get; set; }
         public string Description { get; set; }
         public string ImageURL { get; set; }
         public List<Achievement> Achievements { get; set; }

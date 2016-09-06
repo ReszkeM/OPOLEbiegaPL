@@ -146,6 +146,7 @@
     <Content Include="src\friends\components\FriendEdit.jsx" />
     <Content Include="src\modal\components\Modal.jsx" />
     <Content Include="src\shared\components\Footer.jsx" />
+    <Content Include="src\persons\components\Person.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

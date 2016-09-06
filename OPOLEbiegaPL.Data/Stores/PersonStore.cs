@@ -27,7 +27,23 @@ namespace OPOLEbiegaPL.Data.Stores
                 FirstName = firstName,
                 LastName = lastName,
                 Age = 18,
-                Description = "Jakiś opis",
+                ShortDescription = 
+                    "OPOLEbiega.pl to społeczność, która zrzesza pasjonatów biegania zamieszkujących Opole i okolice Opola. " +
+                    "OPOLEbiega.pl to także nieformalna grupa biegowa, która na celu ma promowanie Opola i Opolszczyzny na biegowej mapie Polski i Europy." +
+                    "Dołączyć do nas może każdy - bez względu na zaawansowanie, płeć, wygląd czy przekonania polityczne i religijne ;) ",
+                Description =
+                    "OPOLEbiega.pl to społeczność, która zrzesza pasjonatów biegania zamieszkujących Opole i okolice Opola. " +
+                    "OPOLEbiega.pl to także nieformalna grupa biegowa, która na celu ma promowanie Opola i Opolszczyzny na biegowej mapie Polski i Europy." +
+                    "Dołączyć do nas może każdy - bez względu na zaawansowanie, płeć, wygląd czy przekonania polityczne i religijne ;) " +
+                    "OPOLEbiega.pl to społeczność, która zrzesza pasjonatów biegania zamieszkujących Opole i okolice Opola. " +
+                    "OPOLEbiega.pl to także nieformalna grupa biegowa, która na celu ma promowanie Opola i Opolszczyzny na biegowej mapie Polski i Europy." +
+                    "Dołączyć do nas może każdy - bez względu na zaawansowanie, płeć, wygląd czy przekonania polityczne i religijne ;) " +
+                    "OPOLEbiega.pl to społeczność, która zrzesza pasjonatów biegania zamieszkujących Opole i okolice Opola. " +
+                    "OPOLEbiega.pl to także nieformalna grupa biegowa, która na celu ma promowanie Opola i Opolszczyzny na biegowej mapie Polski i Europy." +
+                    "Dołączyć do nas może każdy - bez względu na zaawansowanie, płeć, wygląd czy przekonania polityczne i religijne ;) " +
+                     "OPOLEbiega.pl to społeczność, która zrzesza pasjonatów biegania zamieszkujących Opole i okolice Opola. " +
+                    "OPOLEbiega.pl to także nieformalna grupa biegowa, która na celu ma promowanie Opola i Opolszczyzny na biegowej mapie Polski i Europy." +
+                    "Dołączyć do nas może każdy - bez względu na zaawansowanie, płeć, wygląd czy przekonania polityczne i religijne ;) ",
                 ImageURL = "http://opalenica24.info/wp-content/uploads/2014/10/logo-biegacz.gif",
                 Achievements = new List<Achievement>
                 {

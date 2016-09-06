@@ -18,7 +18,7 @@ module.exports = {
   },
   logo: {
       maxHeight: '50px',
-      maxWidth: '50px',
+      maxWidth: '50px'
   },
   header: {
      backgroundImage: 'url(http://warszawskibiegacz.pl/wp-content/uploads/2015/02/drugi_zakres_bieganie_1.jpg)',
@@ -44,5 +44,23 @@ module.exports = {
       fontSize: '14px',
       marginTop: '5px',
       display: 'inline-block'
+  },
+  block: {
+      maxWidth: '1000px',
+      marginTop: '30px'
+  },
+  inlineHeader: {
+      display: 'inline-block',
+      marginLeft: '30px'
+  },
+  inlineLogo: {
+      height: '25%',
+      width: '25%',
+      maxHeight: '250px',
+      maxWidth: '250px',
+      display: 'inline-block'
+  },
+  sliderItem: {
+      minHeight: '500px'
   }
 }
