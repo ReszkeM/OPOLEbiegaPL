@@ -2,12 +2,13 @@
 import {connect} from 'react-redux';
 import Formsy from 'formsy-react';
 
-import {title, textArea} from '../../shared/constants/styles'
+import {title} from '../../shared/constants/styles'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // input components
 import Button from '../../shared/components/inputs/Button'
 import Input from '../../shared/components/inputs/Input'
+import TextArea from '../../shared/components/inputs/TextArea'
 import {Phone} from '../../shared/components/inputs/Phone';
 import {Email} from '../../shared/components/inputs/Email';
 
@@ -43,7 +44,7 @@ export const Contact = React.createClass({
                                 <Input name="Title" value={this.state.title} mainComponent={this} />
                             </div>
                             <div className="form-group">
-                                <textarea className="form-control" id="message" style={textArea} value={this.state.message} />
+                                <TextArea name="Message" value={this.state.message} mainComponent={this} />
                             </div>
                             <div className="form-group">
                                 <Button onClick={() => this.props.submit(this.state)} disabled={!this.state.canSubmit} text={'Wyślij'} type={'edit'} />

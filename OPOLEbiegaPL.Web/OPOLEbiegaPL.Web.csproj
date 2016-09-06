@@ -115,8 +115,8 @@
     <Content Include="src\modal\actions\modal_actions.js" />
     <None Include="src\modal\components\Modal.jsx" />
     <Content Include="src\persons\actions\persons_actions.js" />
-    <Content Include="src\shared\components\inputs\Email.js" />
-    <Content Include="src\shared\components\inputs\Phone.js" />
+    <None Include="src\shared\components\inputs\Email.jsx" />
+    <None Include="src\shared\components\inputs\Phone.jsx" />
     <Content Include="src\shared\constants\action_types.js" />
     <Content Include="src\shared\constants\initialStates.js" />
     <Content Include="src\shared\constants\request_types.js" />
@@ -152,6 +152,7 @@
     <Content Include="src\persons\components\PersonDetails.jsx" />
     <Content Include="src\shared\components\inputs\Button.jsx" />
     <Content Include="src\shared\components\inputs\Input.jsx" />
+    <Content Include="src\shared\components\inputs\TextArea.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
