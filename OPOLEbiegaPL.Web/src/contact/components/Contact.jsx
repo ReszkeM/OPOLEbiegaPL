@@ -7,6 +7,7 @@ import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // input components
 import Button from '../../shared/components/inputs/Button'
+import Input from '../../shared/components/inputs/Input'
 import {Phone} from '../../shared/components/inputs/Phone';
 import {Email} from '../../shared/components/inputs/Email';
 
@@ -30,19 +31,19 @@ export const Contact = React.createClass({
                         <h1 style={title}>Skontaktuj się </h1>
                         <Formsy.Form onValid={ComponentHelper.enableButton.bind(this)} onInvalid={ComponentHelper.disableButton.bind(this)}>
                             <div className="form-group">
-                                <input className="form-control" id="name" type="text" value={this.state.name} onChange={ComponentHelper.textInputChange.bind(this)} placeholder="Name" />
+                                <Input name="Name" value={this.state.name} mainComponent={this} />
                             </div>
                             <div className="form-group">
-                                <Email name="email" onChange={ComponentHelper.textInputChange.bind(this)} value={this.state.email} required />
+                                <Email name="Email" mainComponent={this} value={this.state.email} required />
                             </div>
                             <div className="form-group">
-                                <Phone name="phone" onChange={ComponentHelper.textInputChange.bind(this)} value={this.state.phone} />
+                                <Phone name="Phone" mainComponent={this} value={this.state.phone} />
                             </div>
                             <div className="form-group">
-                                <input className="form-control" id="title" type="text" value={this.state.title} onChange={ComponentHelper.textInputChange.bind(this)} placeholder="Title" />
+                                <Input name="Title" value={this.state.title} mainComponent={this} />
                             </div>
                             <div className="form-group">
-                                <textarea className="form-control" id="message" style={textArea} value={this.state.message} onChange={ComponentHelper.textInputChange.bind(this)} placeholder="Message" />
+                                <textarea className="form-control" id="message" style={textArea} value={this.state.message} />
                             </div>
                             <div className="form-group">
                                 <Button onClick={() => this.props.submit(this.state)} disabled={!this.state.canSubmit} text={'Wyślij'} type={'edit'} />

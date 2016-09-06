@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import Formsy from 'formsy-react';
 import {errorMessage} from '../../constants/styles'
+import Input from './Input'
 
 export const Email = React.createClass({
     mixins: [Formsy.Mixin],
@@ -49,7 +50,7 @@ export const Email = React.createClass({
 
     render: function() {
         return  <div className={this.getClassName()}>
-                    <input className="form-control" type="text" id="email" placeholder="Email" onChange={this.props.onChange} defaultValue={this.props.value} onBlur={this.handleBlur} />
+                   <Input name={this.props.name} value={this.props.value} handleBlur={this.handleBlur} mainComponent={this.props.mainComponent} />
                     { this.isError() ? <span className="label label-danger" style={errorMessage} >{this.state.message}</span> : null}
                 </div>
     }

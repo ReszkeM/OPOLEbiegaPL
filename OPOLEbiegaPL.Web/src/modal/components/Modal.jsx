@@ -34,7 +34,7 @@ export default React.createClass({
                                   <h2 className="modal-title" style={windowTitle}>{this.props.title}</h2>
                               </div>
                               <div className="modal-body">
-                                  <this.props.component {...this.state} handleChange={this.props.isAdminMode ? ComponentHelper.textInputChange.bind(this) : null} />
+                                  <this.props.component {...this.state} mainComponent={this} />
                               </div>
                               <div className="modal-footer">
                                   {this.props.isAdminMode ? this.renderEditButtons() : this.renderDetailsButtons()}

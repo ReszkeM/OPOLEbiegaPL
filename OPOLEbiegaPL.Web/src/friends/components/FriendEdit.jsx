@@ -1,19 +1,20 @@
 ﻿import React from 'react';
-import Styles from '../../shared/constants/styles'
+import {label} from '../../shared/constants/styles'
+import Input from '../../shared/components/inputs/Input'
 
 export default React.createClass({
     render: function () {
       return <div>
                   <div className="form-group row">
-                      <label className="col-md-3" style={Styles.label}>Nazwa: </label>
+                      <label className="col-md-3" style={label}>Nazwa: </label>
                       <div className="col-md-9">
-                          <input className="form-control" id="Name" type="text" value={this.props.Name} onChange={this.props.handleChange} />
+                          <Input id="Name" value={this.props.Name} mainComponent={this.props.mainComponent} />
                       </div>
                   </div>
                   <div className="form-group row">
-                      <label className="col-md-3" style={Styles.label}>Obrazek: </label>
+                      <label className="col-md-3" style={label}>Obrazek: </label>
                       <div className="col-md-9">
-                          <input className="form-control" id="ImageURL" type="text" value={this.props.ImageURL} onChange={this.props.handleChange} />
+                          <Input id="ImageURL" value={this.props.ImageURL} mainComponent={this.props.mainComponent} />
                       </div>
                   </div>
               </div>

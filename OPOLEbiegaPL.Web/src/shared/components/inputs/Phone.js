@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import Formsy from 'formsy-react';
 import {errorMessage} from '../../constants/styles'
+import Input from './Input'
 
 export const Phone = React.createClass({
     mixins: [Formsy.Mixin],
@@ -48,7 +49,7 @@ export const Phone = React.createClass({
 
     render: function() {
         return  <div className={this.getClassName()}>
-                    <input className="form-control" id="phone" type="text" placeholder="Phone" onChange={this.props.onChange} defaultValue={this.props.value} onBlur={this.handleBlur} />
+                    <Input name={this.props.name} value={this.props.value} handleBlur={this.handleBlur} mainComponent={this.props.mainComponent} />
                     { this.isError() ? <span className="label label-danger" style={errorMessage} >{this.state.message}</span> : null}
                 </div>
     }
