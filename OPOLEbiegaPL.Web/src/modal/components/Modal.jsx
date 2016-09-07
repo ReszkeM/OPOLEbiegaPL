@@ -4,6 +4,14 @@ import Button from '../../shared/components/inputs/Button'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 export default React.createClass({
+    getChildContext: function() {
+        return { mainComponent: this };
+    },
+
+    childContextTypes: {
+        mainComponent: React.PropTypes.object
+    },
+
     getInitialState: function() {
         return this.props.state;
     },
@@ -34,7 +42,7 @@ export default React.createClass({
                                   <h2 className="modal-title" style={windowTitle}>{this.props.title}</h2>
                               </div>
                               <div className="modal-body">
-                                  <this.props.component {...this.state} mainComponent={this} />
+                                  <this.props.component {...this.state} />
                               </div>
                               <div className="modal-footer">
                                   {this.props.isAdminMode ? this.renderEditButtons() : this.renderDetailsButtons()}

@@ -49,7 +49,7 @@ export const Phone = React.createClass({
 
     render: function() {
         return  <div className={this.getClassName()}>
-                    <Input name={this.props.name} value={this.props.value} handleBlur={this.handleBlur} mainComponent={this.props.mainComponent} />
+                    <Input name={this.props.name} value={this.props.value} handleBlur={this.handleBlur} />
                     { this.isError() ? <span className="label label-danger" style={errorMessage} >{this.state.message}</span> : null}
                 </div>
     }

@@ -16,10 +16,17 @@ import {Email} from '../../shared/components/inputs/Email';
 import * as actionCreators from '../actions/contact_actions';
 
 export const Contact = React.createClass({
+    getChildContext: function() {
+        return { mainComponent: this };
+    },
+
+    childContextTypes: {
+        mainComponent: React.PropTypes.object
+    },
+
     getInitialState: function() {
         return {
             name: '',
-            email: '',
             phone: '',
             title: '',
             message: ''
@@ -32,19 +39,19 @@ export const Contact = React.createClass({
                         <h1 style={title}>Skontaktuj się </h1>
                         <Formsy.Form onValid={ComponentHelper.enableButton.bind(this)} onInvalid={ComponentHelper.disableButton.bind(this)}>
                             <div className="form-group">
-                                <Input name="Name" value={this.state.name} mainComponent={this} />
+                                <Input name="Name" value={this.state.name} />
                             </div>
                             <div className="form-group">
-                                <Email name="Email" mainComponent={this} value={this.state.email} required />
+                                <Email name="Email" value={this.state.email} required />
                             </div>
                             <div className="form-group">
-                                <Phone name="Phone" mainComponent={this} value={this.state.phone} />
+                                <Phone name="Phone" value={this.state.phone} />
                             </div>
                             <div className="form-group">
-                                <Input name="Title" value={this.state.title} mainComponent={this} />
+                                <Input name="Title" value={this.state.title} />
                             </div>
                             <div className="form-group">
-                                <TextArea name="Message" value={this.state.message} mainComponent={this} />
+                                <TextArea name="Message" value={this.state.message} />
                             </div>
                             <div className="form-group">
                                 <Button onClick={() => this.props.submit(this.state)} disabled={!this.state.canSubmit} text={'Wyślij'} type={'edit'} />
