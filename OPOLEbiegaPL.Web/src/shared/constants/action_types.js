@@ -1,4 +1,5 @@
 ﻿module.exports = {
+    SET_PLACES: 'SET_PLACES',
     SET_PERSONS: 'SET_PERSONS',
     SET_FRIENDS: 'SET_FRIENDS',
     SET_EVENTS: 'SET_EVENTS',

@@ -1,9 +1,17 @@
-﻿const friendAPI = 'http://localhost:57174/api/FriendApi/';
+﻿const placeAPI = 'http://localhost:57174/api/PlaceApi/';
+const friendAPI = 'http://localhost:57174/api/FriendApi/';
 const eventAPI = 'http://localhost:57174/api/EventApi/';
 const personAPI = 'http://localhost:57174/api/PersonApi/';
 const AnnouncementAPI = 'http://localhost:57174/api/AnnouncementApi/';
 
 module.exports = {
+    placesURLs: {
+        getAll: placeAPI + 'GetAll',
+        getLatest: placeAPI + 'GetLatest',
+        getById: placeAPI + 'GetById/',
+        update: placeAPI + 'Update',
+        remove: placeAPI + 'Delete/'
+    },
     friendsURLs: {
         getAll: friendAPI + 'GetAll',
         getLatest: friendAPI + 'GetLatest',

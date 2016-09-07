@@ -115,8 +115,11 @@
     <Content Include="src\modal\actions\modal_actions.js" />
     <None Include="src\modal\components\Modal.jsx" />
     <Content Include="src\persons\actions\persons_actions.js" />
+    <Content Include="src\places\components\Places.jsx" />
     <None Include="src\shared\components\inputs\Email.jsx" />
     <None Include="src\shared\components\inputs\Phone.jsx" />
+    <Content Include="src\places\actions\places_actions.js" />
+    <Content Include="src\places\reducers\places_reducer.js" />
     <Content Include="src\shared\constants\action_types.js" />
     <Content Include="src\shared\constants\initialStates.js" />
     <Content Include="src\shared\constants\menu_items.js" />

@@ -16,6 +16,7 @@ import Menu from './shared/components/Menu';
 import Header from './shared/components/Header';
 import Footer from './shared/components/Footer';
 import Home from './home/components/Home'
+import Places from './places/components/Places'
 import Persons from './persons/components/Persons'
 import Events from './events/components/Events'
 import Friends from './friends/components/Friends'
@@ -47,6 +48,7 @@ ReactDOM.render(
                 <Route path="/" component={App}>
                     <IndexRoute component={Home}/>
                     <Route path="home" component={Home}  />
+                    <Route path="places" component={Places} />
                     <Route path="friends" component={Friends} />
                     <Route path="contact" component={Contact} />
                     <Route path="persons" component={Persons} />
