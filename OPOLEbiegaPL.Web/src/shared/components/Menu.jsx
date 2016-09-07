@@ -1,23 +1,15 @@
 ﻿import React from 'react';
+import {MenuItems} from '../constants/menu_items'
 
 export default React.createClass({
-    getMenuItems: function() {
-        return this.props.menuItems || [];
-    },
-
     render: function() {
         return  <nav className="navbar navbar-default">
                     <div className="container-fluid">
-                        <div className="navbar-header">
-                            <a className="navbar-brand" href="#">Home</a>
-                        </div>
-                        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse">
-                            <ul className="nav navbar-nav">
-                                {this.getMenuItems().map(entry =>
-                                    <li key={entry}><a href={'#/' + entry}>{entry}</a></li>
-                                )}
-                            </ul>
-                        </div>
+                        <ul className="nav navbar-nav">
+                            {MenuItems.map(entry =>
+                                <li key={entry.key}><a href={'#/' + entry.key}>{entry.value}</a></li>
+                            )}
+                        </ul>
                     </div>
                 </nav>
             }

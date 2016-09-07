@@ -119,6 +119,7 @@
     <None Include="src\shared\components\inputs\Phone.jsx" />
     <Content Include="src\shared\constants\action_types.js" />
     <Content Include="src\shared\constants\initialStates.js" />
+    <Content Include="src\shared\constants\menu_items.js" />
     <Content Include="src\shared\constants\request_types.js" />
     <Content Include="src\shared\constants\urls.js" />
     <Content Include="src\shared\helpers\fetchHelper.js" />

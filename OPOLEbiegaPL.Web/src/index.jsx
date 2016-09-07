@@ -27,7 +27,7 @@ const store = createStoreWithMiddleware(reducer);
 
 ReactDOM.render(
     <div id="menu">
-        <Menu menuItems={['Persons', 'Friends' , 'Events' , 'Announcement' , 'Contact' ]} />
+        <Menu />
     </div>,
      document.getElementById('menu')
 );
@@ -51,7 +51,7 @@ ReactDOM.render(
                     <Route path="contact" component={Contact} />
                     <Route path="persons" component={Persons} />
                     <Route path="events" component={Events} />
-                    <Route path="announcement" component={Announcements} />
+                    <Route path="announcements" component={Announcements} />
                 </Route>
               </Router>
             <ReduxToastr timeOut={3000} />
