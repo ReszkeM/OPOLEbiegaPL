@@ -22,6 +22,29 @@ module.exports = {
         maxHeight: '50px',
         maxWidth: '50px'
     },
+    dropdown: {
+        textAlign: 'right',
+        fontWeight: 'bold',
+        fontFamily: 'Georgia',
+        backgroundColor: '#f6f6f6'
+    },
+    dropbtn: {
+        backgroundColor: '#f6f6f6',
+        color: '#337ab7',
+        marginRight: '10px',
+        padding: '3px',
+        fontSize: '16px',
+        border: 'none',
+        cursor: 'pointer'
+    },
+    dropdownContent: {
+        textAlign: 'center',
+        minWidth: '160px',
+        boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)'
+    },
+    menuItems: {
+        float: 'none'
+    },
     navbar: {
         maxWidth: '1440px',
         marginLeft: 'auto',
