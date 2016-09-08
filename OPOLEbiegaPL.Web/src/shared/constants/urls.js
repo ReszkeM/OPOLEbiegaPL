@@ -7,7 +7,7 @@ const AnnouncementAPI = 'http://localhost:57174/api/AnnouncementApi/';
 module.exports = {
     placesURLs: {
         getAll: placeAPI + 'GetAll',
-        getLatest: placeAPI + 'GetLatest',
+        getLatest: placeAPI + 'GetAll',
         getById: placeAPI + 'GetById/',
         update: placeAPI + 'Update',
         remove: placeAPI + 'Delete/'

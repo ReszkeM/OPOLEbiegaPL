@@ -64,5 +64,8 @@ module.exports = {
   },
   sliderItem: {
       minHeight: '500px'
+  },
+  enforceWhiteSpace: {
+      whiteSpace: 'pre-wrap'
   }
 }

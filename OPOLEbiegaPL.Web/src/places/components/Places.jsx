@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 // helpers and constants
 import Button from '../../shared/components/inputs/Button'
 import ComponentHelper from '../../shared/helpers/componentHelper'
+import {enforceWhiteSpace} from '../../shared/constants/styles'
 
 // actions
 import * as placesActions from '../actions/places_actions';
@@ -24,19 +25,16 @@ export const Places = React.createClass({
         return this.props.places.map( (place) =>
             <div key={place.Name}>
                 <h1>{place.Name}</h1>
+                <p>{place.Address}</p>
+                <p style={enforceWhiteSpace}>{place.Description}</p>
+                <img src={place.GPX} alt="logo" className="img-responsive"/>
             </div>
         );
     },
 
-    expandButton: function () {
-        var buttonText = this.state.showAll === false ? 'Pokaż wszystkie' : 'Zwiń';
-        var func = this.state.showAll === false ? ComponentHelper.expand.bind(this) : ComponentHelper.collapse.bind(this, this.props.events)
-        return <Button onClick={func} text={buttonText} type={'link'} />
-    },
-
     render: function() {
         return  <div className="places">
-                   TODO
+                   {this.renderListOfItems()}
                 </div>
     }
 });
