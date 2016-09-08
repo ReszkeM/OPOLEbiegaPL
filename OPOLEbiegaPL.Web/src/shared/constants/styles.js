@@ -49,7 +49,8 @@ module.exports = {
   },
   block: {
       maxWidth: '1000px',
-      marginTop: '30px'
+      marginTop: '30px',
+      height: '500px'
   },
   inlineHeader: {
       display: 'inline-block',
@@ -63,7 +64,8 @@ module.exports = {
       display: 'inline-block'
   },
   sliderItem: {
-      minHeight: '500px'
+      minHeight: '500px',
+      maxHeight: '500px'
   },
   enforceWhiteSpace: {
       whiteSpace: 'pre-wrap'
