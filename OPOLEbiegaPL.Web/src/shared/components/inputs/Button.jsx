@@ -11,6 +11,8 @@ export default React.createClass({
                 return "btn btn-danger" 
             case 'link':
                 return "btn btn-link"
+            case 'none':
+                return null;
             default:
                 return "btn btn-default"
         }
@@ -21,7 +23,15 @@ export default React.createClass({
         else return this.props.isEditMode
     },
 
+
     render: function() {
-        return this.shouldComponentDisplay() ? <button className={this.getClassName()} disabled={this.props.disabled} onClick={this.props.onClick}>{this.props.text}</button> : null
+        return  this.shouldComponentDisplay() 
+                ? 
+                <button className={this.getClassName()} style={this.props.styles} disabled={this.props.disabled} onClick={this.props.onClick}>
+                    { this.props.text }
+                    { this.props.icon !== undefined ? <span className={ this.props.icon }> </span> : null }
+                </button>
+                : 
+                null
     }
 });
