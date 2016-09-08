@@ -6,6 +6,7 @@ export default React.createClass({
         return  <footer>
                    <div className="navbar navbar-default">
                           <p className="navbar-text pull-left"> © 2016 - OPOLEbiega.pl By Marek Reszke </p>
+                          { /* TODO: sekcja/slider ze sponsorami */ }
                     </div>
                 </footer>
     }

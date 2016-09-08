@@ -6,6 +6,8 @@ export default React.createClass({
         return   <div className="form-group row">
                     <div className="col-md-8 col-md-offset-2">
                         <h1 style={Styles.title}>Home</h1>
+                        { /* TODO: opis grupy */ }
+                        { /* TODO: wykres z endomondo z rywalizacji - na obecny miesiąc + dodać rywalizację na cały rok? */ }
                     </div>
                 </div>
         }
