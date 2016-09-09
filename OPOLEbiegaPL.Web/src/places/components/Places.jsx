@@ -2,8 +2,10 @@
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
+import {Slider} from '../../shared/components/common/Slider'
+import {Place} from './Place';
+
 // helpers and constants
-import Button from '../../shared/components/inputs/Button'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 import {enforceWhiteSpace} from '../../shared/constants/styles'
 
@@ -21,20 +23,15 @@ export const Places = React.createClass({
         }
     },
 
-    renderListOfItems: function() {
-        return this.props.places.map( (place) =>
-            <div key={place.Name}>
-                <h1>{place.Name}</h1>
-                <p>{place.Address}</p>
-                <p style={enforceWhiteSpace}>{place.Description}</p>
-                <img src={place.GPX} alt="logo" className="img-responsive"/>
-            </div>
-        );
+    renderPersonCarousel: function() {
+        return  <div id="slider">
+                    <Slider collection={this.props.places} component={Place} />
+                </div>
     },
 
     render: function() {
         return  <div className="places">
-                   {this.renderListOfItems()}
+                   {this.renderPersonCarousel()}
                 </div>
     }
 });

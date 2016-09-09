@@ -119,6 +119,7 @@
     <None Include="src\modal\components\Modal.jsx" />
     <Content Include="src\persons\actions\persons_actions.js" />
     <Content Include="src\places\components\Places.jsx" />
+    <Content Include="src\places\components\Place.jsx" />
     <None Include="src\shared\components\inputs\Email.jsx" />
     <None Include="src\shared\components\inputs\Phone.jsx" />
     <Content Include="src\places\actions\places_actions.js" />
