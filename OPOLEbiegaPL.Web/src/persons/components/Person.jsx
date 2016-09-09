@@ -8,6 +8,7 @@ import {inlineLogo, inlineHeader, sliderItem} from '../../shared/constants/style
 
 export const Person = React.createClass({
     render: function() {
+        console.log(this.props)
         return  <div className="col-md-10 col-md-offset-1" style={sliderItem}>
                     <img src={this.props.object.ImageURL} style={inlineLogo} alt="logo" className="img-responsive img-circle" />
                     <h1 style={inlineHeader}>{this.props.object.FirstName} {this.props.object.LastName}</h1>

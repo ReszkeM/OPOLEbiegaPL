@@ -26,7 +26,7 @@ export const Persons = React.createClass({
 
     renderPersonCarousel: function() {
         return  <div id="slider">
-                    <Slider collection={this.props.persons} component={Person} />
+                    <Slider collection={this.props.persons} component={Person} action={this.showDetailsButtonClick} />
                 </div>
     },
 

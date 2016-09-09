@@ -11,7 +11,7 @@ export const Slider = React.createClass({
         if (this.props.collection.length !== 0){
             return  <Carousel style={block} className="center-block">
                         { this.props.collection.map( (object) =>
-                            <this.props.component key={object.Id} object={object} action={this.showDetailsButtonClick} />
+                            <this.props.component key={object.Id} object={object} action={this.props.action} />
                         )}
                     </Carousel>
         }
