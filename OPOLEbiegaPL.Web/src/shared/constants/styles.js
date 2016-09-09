@@ -18,10 +18,6 @@ module.exports = {
         textAlign: 'center',
         fontFamily: 'cursive'
     },
-    logo: {
-        maxHeight: '50px',
-        maxWidth: '50px'
-    },
     dropdown: {
         textAlign: 'right',
         fontWeight: 'bold',
@@ -88,7 +84,7 @@ module.exports = {
     block: {
         maxWidth: '1000px',
         marginTop: '30px',
-        height: '500px'
+        height: 'auto'
     },
     inlineHeader: {
         display: 'inline-block',
@@ -101,14 +97,25 @@ module.exports = {
         maxWidth: '250px',
         display: 'inline-block'
     },
+    smallLogo: {
+        height: '15%',
+        width: '15%',
+        maxHeight: '200px',
+        maxWidth: '200px',
+        display: 'inline-block'
+    },
     sliderItem: {
         minHeight: '500px',
         maxHeight: '500px'
     },
+    smallSliderItem: {
+        minHeight: '350px',
+        maxHeight: '350px'
+    },
     enforceWhiteSpace: {
         whiteSpace: 'pre-wrap'
     },
-    centerBlock: {
+    contactBlock: {
         maxWidth: '1000px',
         marginLeft: 'auto',
         marginRight: 'auto',

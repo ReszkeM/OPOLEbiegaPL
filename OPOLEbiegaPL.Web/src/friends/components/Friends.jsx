@@ -3,14 +3,11 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 // helpers and constants
-import {logo} from '../../shared/constants/styles'
-import {friend} from '../../shared/constants/initialStates'
 import {setFriend} from '../../shared/helpers/stateHelper'
 
 // components
-import Button from '../../shared/components/inputs/Button'
-import Modal from '../../modal/components/Modal';
-import FriendEdit from './FriendEdit'
+import {Slider} from '../../shared/components/common/Slider'
+import {Friend} from './Friend';
 
 // actions
 import * as friendsActions from '../actions/friends_actions';
@@ -24,43 +21,15 @@ export const Friends = React.createClass({
         return null;
     },
 
-    renderListOfItems: function() {
-        return this.props.friends.map( (friend) =>
-            <div key={friend.Id}>
-                <h1>{friend.Name}</h1>
-                <img src={friend.ImageURL} style={logo} alt="logo" className="img-responsive"/>
-                { this.renderEditButton(friend.Id) }
-            </div>
-        );
-    },
-
-    renderEditButton: function(id = -1) {
-        var text = id > 0 ? 'Edytuj' : 'Dodaj';
-        return  <Button onClick={() => this.editButtonClick(text, id)} text={text} type={'edit'} />
-    },
-
-    editButtonClick: function(title, id) {
-        this.props.actions.setFriend({
-            isPopupVisible: true,
-            isEditMode: id > 0,
-            title: title
-        }, id);
-    },
-
-    modalRender: function() {
-      return this.props.modal.isPopupVisible ?
-              <div id="editWindow">
-                  <Modal {...this.props.modal} state={friend} setObject={setFriend} {...this.props.actions} {...this.props.modalActions} component={FriendEdit} isAdminMode={true} />
-              </div>
-              : null
+    renderFriendsCarousel: function() {
+        return  <div id="slider">
+                    <Slider collection={this.props.friends} component={Friend} />
+                </div>
     },
 
     render: function() {
         return  <div className="friends">
-                    { this.renderListOfItems() }
-                    <hr />
-                    { this.renderEditButton() }
-                    { this.modalRender() }
+                    { this.renderFriendsCarousel() }
                 </div>
     }
 });

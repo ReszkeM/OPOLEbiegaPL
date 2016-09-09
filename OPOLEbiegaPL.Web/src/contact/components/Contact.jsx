@@ -2,7 +2,7 @@
 import {connect} from 'react-redux';
 import Formsy from 'formsy-react';
 
-import {title, centerBlock} from '../../shared/constants/styles'
+import {title, contactBlock} from '../../shared/constants/styles'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
 // input components
@@ -35,7 +35,7 @@ export const Contact = React.createClass({
 
     render: function() {
         return  <div className="form-group">
-                    <div style={centerBlock}>
+                    <div style={contactBlock}>
                         <h1 style={title}>Skontaktuj się </h1>
                         <Formsy.Form onValid={ComponentHelper.enableButton.bind(this)} onInvalid={ComponentHelper.disableButton.bind(this)}>
                             <div className="form-group">

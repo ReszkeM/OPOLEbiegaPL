@@ -22,7 +22,9 @@ namespace OPOLEbiegaPL.Data.Stores
             {
                 Id = id,
                 Name = name,
-                ImageURL = "http://design.ubuntu.com/wp-content/uploads/ubuntu-logo32.png"
+                Description = "Jakaś krótka notka, Jakaś krótka notka, Jakaś krótka notka, Jakaś krótka notka, Jakaś krótka notka",
+                ImageURL = "http://design.ubuntu.com/wp-content/uploads/ubuntu-logo32.png",
+                SiteURL = "http://opolebiega.pl/"
             };
         }
     }

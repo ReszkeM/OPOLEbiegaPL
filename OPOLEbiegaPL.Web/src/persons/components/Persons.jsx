@@ -1,24 +1,22 @@
 ﻿import React from 'react';
-import Carousel from 'nuka-carousel';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 // helpers and constants
 import {setPerson} from '../../shared/helpers/stateHelper'
 import {person} from '../../shared/constants/initialStates'
-import {block} from '../../shared/constants/styles'
 
 // actions
 import * as personsActions from '../actions/persons_actions';
 import * as modalActions from '../../modal/actions/modal_actions';
 
 // components
+import {Slider} from '../../shared/components/common/Slider'
 import Modal from '../../modal/components/Modal';
 import PersonDetails from './PersonDetails';
 import {Person} from './Person';
 
 export const Persons = React.createClass({
-    mixins: [Carousel.ControllerMixin],
     getInitialState: function() {
         if (this.props.persons.length === 0){
             this.props.actions.setPersons({});
@@ -27,13 +25,9 @@ export const Persons = React.createClass({
     },
 
     renderPersonCarousel: function() {
-        if( this.props.persons.length !== 0){
-            return  <Carousel style={block} className="center-block">
-                        { this.props.persons.map( (person) =>
-                            <Person key={person.Id} person={person} action={this.showDetailsButtonClick} />
-                        )}
-                    </Carousel>
-        }
+        return  <div id="slider">
+                    <Slider collection={this.props.persons} component={Person} />
+                </div>
     },
 
     modalRender: function() {
