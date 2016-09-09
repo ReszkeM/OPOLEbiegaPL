@@ -107,5 +107,12 @@ module.exports = {
     },
     enforceWhiteSpace: {
         whiteSpace: 'pre-wrap'
+    },
+    centerBlock: {
+        maxWidth: '1000px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        paddingLeft: '20px',
+        paddingRight: '20px'
     }
 }
