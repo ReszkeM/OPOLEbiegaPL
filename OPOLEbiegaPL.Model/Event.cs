@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace OPOLEbiegaPL.Model
 {
@@ -9,9 +8,10 @@ namespace OPOLEbiegaPL.Model
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public string Place { get; set; }
-        public string Distance { get; set; }
-        public string Description { get; set; }
-        public List<string> ImagesURLs { get; set; }
+        public string Details { get; set; }
+        public string EventReport { get; set; }
+        public string ImageURL { get; set; }
+        public string GalleryURL { get; set; }
 
         public bool IsPersistent()
         {

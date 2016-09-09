@@ -24,14 +24,11 @@ namespace OPOLEbiegaPL.Data.Stores
                 Id = id,
                 Name = name,
                 Date = date,
-                Distance = "35km",
+                Details = "Długość trasy: 35km, przewyższenia: 1800m",
                 Place = place,
-                Description = "Jakiś opis",
-                ImagesURLs = new List<string>
-                {
-                    "http://opalenica24.info/wp-content/uploads/2014/10/logo-biegacz.gif",
-                    "http://interaktywnie.cba.pl/wp-content/uploads/2013/05/biegacz-300x244.jpg"
-                }
+                EventReport = "Jakiś opis",
+                ImageURL = "http://www.elle.pl/gfx/00/01/07/db/image-1gmvbib_jpg/thumb_900x800_10.jpg/__/majowka-w-polsce-gory-fot-fotolia-com.jpg",
+                GalleryURL = "https://sites.google.com/site/pieknewidokipl/home/gorywpolsce"
             };
         }
     }

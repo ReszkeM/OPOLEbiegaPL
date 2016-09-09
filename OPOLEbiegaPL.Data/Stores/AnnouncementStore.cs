@@ -24,10 +24,11 @@ namespace OPOLEbiegaPL.Data.Stores
                 Id = id,
                 Name = name,
                 Date = date,
-                Distance = "35km",
+                Details = "Długość trasy: 35km, przewyższenia: 1800m",
                 Place = place,
                 Description = "Jakiś opis",
-                ImageURL = "http://opalenica24.info/wp-content/uploads/2014/10/logo-biegacz.gif",
+                FacebookURL = "https://www.facebook.com/events/1803282573228690/",
+                ImageURL = "http://opalenica24.info/wp-content/uploads/2014/10/logo-biegacz.gif"
             };
         }
     }
