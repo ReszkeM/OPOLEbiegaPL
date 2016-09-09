@@ -6,6 +6,10 @@ import { bindActionCreators } from 'redux'
 import Button from '../../shared/components/inputs/Button'
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
+// components
+import {Slider} from '../../shared/components/common/Slider'
+import {Event} from './Event';
+
 // actions
 import * as eventsActions from '../actions/events_actions';
 import * as modalActions from '../../modal/actions/modal_actions';
@@ -20,19 +24,18 @@ export const Events = React.createClass({
         }
     },
 
-    renderListOfItems: function() {
-        return this.props.events.map( (event) =>
-            <div key={event.Name}>
-                <h1>{event.Name}</h1>
-                <p>{event.Place}</p>
-                <p>{event.Date}</p>
-                <p>{event.Distance}</p>
-                <p>{event.Description}</p>
-            </div>
-        );
+    renderEventsCarousel: function() {
+        return  <div id="slider">
+                    <Slider collection={this.props.events} component={Event} />
+                </div>
     },
 
     expandButton: function () {
+        { 
+            // TODO: Zrobić coś z tym przyciskiem - 
+            // - wywalić i zostawić tylko kilka ostatnich eventów
+            // - wrzucić gdzieś do slidera - jako decorator? - wtedy trzeba zrobić dekorator w komponencie i tutaj tylko dać properte czy ma byc ten bnutton
+        }
         var buttonText = this.state.showAll === false ? 'Pokaż wszystkie' : 'Zwiń';
         var func = this.state.showAll === false ? ComponentHelper.expand.bind(this) : ComponentHelper.collapse.bind(this, this.props.events)
         return <Button onClick={func} text={buttonText} type={'link'} />
@@ -40,8 +43,7 @@ export const Events = React.createClass({
 
     render: function() {
         return  <div className="events">
-                    { this.renderListOfItems() }
-                    { this.expandButton() }
+                    { this.renderEventsCarousel() }
                 </div>
     }
 });

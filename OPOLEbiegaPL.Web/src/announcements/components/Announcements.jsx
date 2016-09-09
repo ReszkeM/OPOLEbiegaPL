@@ -5,6 +5,10 @@ import { bindActionCreators } from 'redux'
 // helpers and constants
 import ComponentHelper from '../../shared/helpers/componentHelper'
 
+// components
+import {Slider} from '../../shared/components/common/Slider'
+import {Announcement} from './Announcement';
+
 // actions
 import * as announcementsActions from '../actions/announcements_actions';
 import * as modalActions from '../../modal/actions/modal_actions';
@@ -17,21 +21,15 @@ export const Announcements = React.createClass({
         return null;
     },
 
-    renderListOfItems: function() {
-        return this.props.announcements.map( (announcement) =>
-            <div key={announcement.Name}>
-                <h1>{announcement.Name}</h1>
-                <p>{announcement.Place}</p>
-                <p>{announcement.Date}</p>
-                <p>{announcement.Distance}</p>
-                <p>{announcement.Description}</p>
-            </div>
-        );
+    renderAnnouncementsCarousel: function() {
+        return  <div id="slider">
+                    <Slider collection={this.props.announcements} component={Announcement} />
+                </div>
     },
 
     render: function() {
         return  <div className="announcements">
-                    { this.renderListOfItems() }
+                    { this.renderAnnouncementsCarousel() }
                 </div>
     }
 });

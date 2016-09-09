@@ -114,6 +114,8 @@
     <Content Include="src\friends\actions\friends_actions.js" />
     <Content Include="src\modal\actions\modal_actions.js" />
     <Content Include="src\friends\components\Friend.jsx" />
+    <Content Include="src\announcements\components\Announcement.jsx" />
+    <Content Include="src\events\components\Event.jsx" />
     <None Include="src\modal\components\Modal.jsx" />
     <Content Include="src\persons\actions\persons_actions.js" />
     <Content Include="src\places\components\Places.jsx" />
